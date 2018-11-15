@@ -1,77 +1,77 @@
 <!DOCTYPE html>
 <html id="demohtml"  class="testdrive"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Pinball</title>
-		<style id="inlinecss" title="democss" type="text/css">
+<title>Pinball</title>
+<style id="inlinecss" title="democss" type="text/css">
 /*<![CDATA[*/
 html#demohtml
 {
-	background-color: black;
-	overflow: hidden;
+background-color: black;
+overflow: hidden;
 }
 
-	body
-	{
-		overflow: hidden;
-	}
-	#_debugWindow
-	{
-		position: absolute;
-		top: 0;
-		right: 0;
-		opacity: .8;
-		overflow: auto;
-		height: 200px;
-		width: 500px;
-		background-color: #b0c4de;
-		font-family: Courier New;
-		font-size: small;
-		padding: 20px;
-		border-radius: 10px;
-		border: 2px solid #000;
-		display: none;
-	}
-	#blather
-	{
-		position: absolute;
-		top: 30px;
-		left: 580px;
-		right: 30px;
-	}
-	/*]]>*/
-	.Score
-	{
-		font:serif;
-		font-size:30px;
-		color:#FF7700;
-	}
-		</style>
-		<meta name="t_omni_demopage" content="1">
-	</head>
+body
+{
+overflow: hidden;
+}
+#_debugWindow
+{
+position: absolute;
+top: 0;
+right: 0;
+opacity: .8;
+overflow: auto;
+height: 200px;
+width: 500px;
+background-color: #b0c4de;
+font-family: Courier New;
+font-size: small;
+padding: 20px;
+border-radius: 10px;
+border: 2px solid #000;
+display: none;
+}
+#blather
+{
+position: absolute;
+top: 30px;
+left: 580px;
+right: 30px;
+}
+/*]]>*/
+.Score
+{
+font:serif;
+font-size:30px;
+color:#FF7700;
+}
+</style>
+<meta name="t_omni_demopage" content="1">
+</head>
 
-	<body id="demobody">
-		<div id="fullbodywrap">
-			<div id="ReturnAndShareControls"></div>
-			<div id="demoContentCenterer">
-				<div id="demoContentWrapper">
-					<div id="_debugWindow">
-					</div>
-					<div id="containerDiv">
-						<div class="Score" style="top: 65px; left: 127px">
-							Score: <span id="spScore">0</span>
-						</div>
-						<div class="Score" style="top: 65px; left: 267px">
-							Balls: <span id="spBalls">3</span>
-						</div>
-						<div class="Score" style="top: 65px; left: 347px">
-							Multiball&nbsp;@: <span id="spMultiball">2</span>000</div>
-						<div id="GameContainer">
-							<canvas id="pinballCanvas" height="560" width="400"></canvas>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	<script>
+<body id="demobody">
+<div id="fullbodywrap">
+<div id="ReturnAndShareControls"></div>
+<div id="demoContentCenterer">
+<div id="demoContentWrapper">
+<div id="_debugWindow">
+</div>
+<div id="containerDiv">
+<div class="Score" style="top: 65px; left: 127px">
+Score: <span id="spScore">0</span>
+</div>
+<div class="Score" style="top: 65px; left: 267px">
+Balls: <span id="spBalls">3</span>
+</div>
+<div class="Score" style="top: 65px; left: 347px">
+Multiball&nbsp;@: <span id="spMultiball">2</span>000</div>
+<div id="GameContainer">
+<canvas id="pinballCanvas" height="560" width="400"></canvas>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
 //box2d.js
 var a;function extend(b,c){for(var d in c)b[d]=c[d]};var b2Settings=function(){this.__varz();this.__constructor.apply(this,arguments)};b2Settings.prototype.__constructor=function(){};b2Settings.prototype.__varz=function(){};b2Settings.USHRT_MAX=65535;b2Settings.b2_pi=Math.PI;b2Settings.b2_maxManifoldPoints=2;b2Settings.b2_maxPolygonVertices=8;b2Settings.b2_maxProxies=512;b2Settings.b2_maxPairs=8*b2Settings.b2_maxProxies;b2Settings.b2_linearSlop=0.005;b2Settings.b2_angularSlop=2/180*b2Settings.b2_pi;b2Settings.b2_toiSlop=8*b2Settings.b2_linearSlop;
 b2Settings.b2_maxTOIContactsPerIsland=32;b2Settings.b2_velocityThreshold=1;b2Settings.b2_maxLinearCorrection=0.2;b2Settings.b2_maxAngularCorrection=8/180*b2Settings.b2_pi;b2Settings.b2_maxLinearVelocity=200;b2Settings.b2_maxLinearVelocitySquared=b2Settings.b2_maxLinearVelocity*b2Settings.b2_maxLinearVelocity;b2Settings.b2_maxAngularVelocity=250;b2Settings.b2_maxAngularVelocitySquared=b2Settings.b2_maxAngularVelocity*b2Settings.b2_maxAngularVelocity;b2Settings.b2_contactBaumgarte=0.2;
@@ -420,8 +420,8 @@ l.upperBound.x=d.m_worldAABB.lowerBound.x+f.x*d.m_bounds[0][n.upperBounds[0]].va
 1/d.m_quantizationFactor.y);i.Set(0.9,0.3,0.9);for(c=0;c<b2Settings.b2_maxProxies;++c){l=d.m_proxyPool[c];if(l.IsValid()!=false){k.lowerBound.x=g.x+f.x*d.m_bounds[0][l.lowerBounds[0]].value;k.lowerBound.y=g.y+f.y*d.m_bounds[1][l.lowerBounds[1]].value;k.upperBound.x=g.x+f.x*d.m_bounds[0][l.upperBounds[0]].value;k.upperBound.y=g.y+f.y*d.m_bounds[1][l.upperBounds[1]].value;m[0].Set(k.lowerBound.x,k.lowerBound.y);m[1].Set(k.upperBound.x,k.lowerBound.y);m[2].Set(k.upperBound.x,k.upperBound.y);m[3].Set(k.lowerBound.x,
 k.upperBound.y);this.m_debugDraw.DrawPolygon(m,4,i)}}m[0].Set(g.x,g.y);m[1].Set(h.x,g.y);m[2].Set(h.x,h.y);m[3].Set(g.x,h.y);this.m_debugDraw.DrawPolygon(m,4,new b2Color(0.3,0.9,0.9))}if(b&b2DebugDraw.e_obbBit){i.Set(0.5,0.3,0.5);for(d=this.m_bodyList;d;d=d.m_next){j=d.m_xf;for(e=d.GetShapeList();e;e=e.m_next)if(e.m_type==b2Shape.e_polygonShape){f=e.GetOBB();c=f.extents;m[0].Set(-c.x,-c.y);m[1].Set(c.x,-c.y);m[2].Set(c.x,c.y);m[3].Set(-c.x,c.y);for(c=0;c<4;++c){k=f.R;g=m[c];h=f.center.x+(k.col1.x*
 g.x+k.col2.x*g.y);m[c].y=f.center.y+(k.col1.y*g.x+k.col2.y*g.y);m[c].x=h;k=j.R;h=j.position.x+(k.col1.x*g.x+k.col2.x*g.y);m[c].y=j.position.y+(k.col1.y*g.x+k.col2.y*g.y);m[c].x=h}this.m_debugDraw.DrawPolygon(m,4,i)}}}if(b&b2DebugDraw.e_centerOfMassBit)for(d=this.m_bodyList;d;d=d.m_next){j=b2World.s_xf;j.R=d.m_xf.R;j.position=d.GetWorldCenter();this.m_debugDraw.DrawXForm(j)}}};
-	</script>
-	<script>
+</script>
+<script>
 //keyboard.js
 // Key constants
 KEY_PLUS_NUMROW = 187;
@@ -468,8 +468,8 @@ KEY_PAGE_DOWN = 34;
 KEY_LEFT_BRACE = 219;
 KEY_RIGHT_BRACE = 221;
 KEY_BACK_SLASH = 220;
-	</script>
-	<script>
+</script>
+<script>
 //board.js
 gBoardElementRestitution = .5;
 gBoardElementFriction = .1;
@@ -490,344 +490,344 @@ gRFlipperJoint = null;
 // This is a helper function since b2BoxDef was removed from b2d2.
 function CreateStaticBox(sizeX, sizeY, posX, posY, userData)
 {	
-	var shape = new b2PolygonDef();
-	var ext = pixelToB2dCoords(sizeX, sizeY);
-	shape.SetAsBox(ext.x, ext.y);
-	shape.userData = userData;
-	shape.restitution = gBoardElementRestitution;
-	var groundBd = new b2BodyDef();
-	var pos = pixelToB2dCoords(posX, posY);
-	groundBd.position.Set(pos.x, pos.y);
-	var body = gB2.world.CreateBody(groundBd);
-	body.CreateShape(shape);
-	
+var shape = new b2PolygonDef();
+var ext = pixelToB2dCoords(sizeX, sizeY);
+shape.SetAsBox(ext.x, ext.y);
+shape.userData = userData;
+shape.restitution = gBoardElementRestitution;
+var groundBd = new b2BodyDef();
+var pos = pixelToB2dCoords(posX, posY);
+groundBd.position.Set(pos.x, pos.y);
+var body = gB2.world.CreateBody(groundBd);
+body.CreateShape(shape);
+
 }
 
 function initBoard(){
-	// Ground
-	CreateStaticBox(180,1, 200,540, {drawShape: true, shapeName: "TheGround"});
-	// Right Wall
-	CreateStaticBox(1,260, 384,280, {drawShape: true, shapeName: "BoundingBox"});
-	// ?? Wall
-	CreateStaticBox(1,80, 361,320, {drawShape: true, shapeName: "BoundingBox"});
-	// Left Wall
-	CreateStaticBox(1,260, 20,280, {drawShape: true, shapeName: "BoundingBox"});
-	// ?? Wall
-	CreateStaticBox(180,1, 200,20, {drawShape: true, shapeName: "BoundingBox"});
+// Ground
+CreateStaticBox(180,1, 200,540, {drawShape: true, shapeName: "TheGround"});
+// Right Wall
+CreateStaticBox(1,260, 384,280, {drawShape: true, shapeName: "BoundingBox"});
+// ?? Wall
+CreateStaticBox(1,80, 361,320, {drawShape: true, shapeName: "BoundingBox"});
+// Left Wall
+CreateStaticBox(1,260, 20,280, {drawShape: true, shapeName: "BoundingBox"});
+// ?? Wall
+CreateStaticBox(180,1, 200,20, {drawShape: true, shapeName: "BoundingBox"});
 
-	var b2 = gB2;
-		
-	// Create Trampolines
-	var LTrampPoints = [];
-	LTrampPoints[0] = [80, 120];
-	LTrampPoints[1] = [0, 80];
-	LTrampPoints[2] = [0, 0];
-	var LTrampPos = [60, 300];	
-	var LTrampBody = createPoly(b2.world, LTrampPos[0], LTrampPos[1], LTrampPoints, true, {drawShape:true, shapeName:"LTramp"});
-	
-	var RTrampPoints = [];
-	RTrampPoints[0] = [80, -120];
-	RTrampPoints[1] = [80, -40];
-	RTrampPoints[2] = [0, 0];
-	var RTrampPos = [260, 420];					
-	var RTrampBody = createPoly(b2.world, RTrampPos[0], RTrampPos[1], RTrampPoints, true, {drawShape:true, shapeName:"RTramp"});
+var b2 = gB2;
 
-	// Create valve to prevent balls from going back into the launcher	
-	var valveShape = new b2PolygonDef();
-	var valveSize = pixelToB2dCoords(1, 12);
-	valveShape.SetAsOrientedBox(valveSize.x, valveSize.y, new b2Vec2(0,0), 1/*.25 * b2Settings.b2_pi*/);
-	valveShape.userData = {drawShape:true, shapeName:"LauncherValve"};
-	valveShape.restitution = gBoardElementRestitution;
-	valveShape.density = 1;
-	
-	var valveBody = new b2BodyDef();
-	var pos = pixelToB2dCoords(370, 95);
-	valveBody.position.Set(pos.x, pos.y);
-	var valveBody = gB2.world.CreateBody(valveBody);
-	valveBody.CreateShape(valveShape);
-	valveBody.SetMassFromShapes();
-	var valveJointDef = new b2RevoluteJointDef();
-	
-	var anchorPos = pixelToB2dCoords(362, 103);
-	valveJointDef.Initialize(b2.world.GetGroundBody(),valveBody,new b2Vec2(anchorPos.x, anchorPos.y));
-	valveJointDef.userData = {jointName : "ValveJoint"};	
-	b2.world.CreateJoint(valveJointDef);		
+// Create Trampolines
+var LTrampPoints = [];
+LTrampPoints[0] = [80, 120];
+LTrampPoints[1] = [0, 80];
+LTrampPoints[2] = [0, 0];
+var LTrampPos = [60, 300];	
+var LTrampBody = createPoly(b2.world, LTrampPos[0], LTrampPos[1], LTrampPoints, true, {drawShape:true, shapeName:"LTramp"});
+
+var RTrampPoints = [];
+RTrampPoints[0] = [80, -120];
+RTrampPoints[1] = [80, -40];
+RTrampPoints[2] = [0, 0];
+var RTrampPos = [260, 420];					
+var RTrampBody = createPoly(b2.world, RTrampPos[0], RTrampPos[1], RTrampPoints, true, {drawShape:true, shapeName:"RTramp"});
+
+// Create valve to prevent balls from going back into the launcher	
+var valveShape = new b2PolygonDef();
+var valveSize = pixelToB2dCoords(1, 12);
+valveShape.SetAsOrientedBox(valveSize.x, valveSize.y, new b2Vec2(0,0), 1/*.25 * b2Settings.b2_pi*/);
+valveShape.userData = {drawShape:true, shapeName:"LauncherValve"};
+valveShape.restitution = gBoardElementRestitution;
+valveShape.density = 1;
+
+var valveBody = new b2BodyDef();
+var pos = pixelToB2dCoords(370, 95);
+valveBody.position.Set(pos.x, pos.y);
+var valveBody = gB2.world.CreateBody(valveBody);
+valveBody.CreateShape(valveShape);
+valveBody.SetMassFromShapes();
+var valveJointDef = new b2RevoluteJointDef();
+
+var anchorPos = pixelToB2dCoords(362, 103);
+valveJointDef.Initialize(b2.world.GetGroundBody(),valveBody,new b2Vec2(anchorPos.x, anchorPos.y));
+valveJointDef.userData = {jointName : "ValveJoint"};	
+b2.world.CreateJoint(valveJointDef);		
 
 
 
-	// Create Flippers
-	// LFlipper
-	var LFlipperPolyPoints = [];
-	LFlipperPolyPoints[2] = [-58, -65];
-	LFlipperPolyPoints[1] = [-80, -31];
-	LFlipperPolyPoints[0] = [0, 0];
-	LFlipperPolyPos = [180,500];
-	
-	var LFlipperSd = new b2CircleDef();
-	var LFlipperBd = new b2BodyDef();
-	
-	LFlipperSd.radius = pixelToB2dCoords(20, 0).x;
-	var LFlipperPos = pixelToB2dCoords(110, 452);
-	LFlipperBd.allowSleep = false;
-	LFlipperBd.position.Set(LFlipperPos.x, LFlipperPos.y);
-	var LFlipperCircleBody = b2.world.CreateBody(LFlipperBd);
-	LFlipperCircleBody.CreateShape(LFlipperSd);
-	var LFlipperPolyBody = createPoly(b2.world, LFlipperPolyPos[0], LFlipperPolyPos[1], LFlipperPolyPoints, false, {drawShape:true, allowSleep:false, shapeName:"LFlipperPoly"});
-	LFlipperPolyBody.SetMassFromShapes();
-	LFlipperPolyBody.isBullet = true;
-	var LFlipperJointDef = new b2RevoluteJointDef();
-	
-	LFlipperJointDef.Initialize(LFlipperPolyBody, LFlipperCircleBody, LFlipperCircleBody.m_xf.position);
-	LFlipperJointDef.userData = {jointName : "LFlipper"};
+// Create Flippers
+// LFlipper
+var LFlipperPolyPoints = [];
+LFlipperPolyPoints[2] = [-58, -65];
+LFlipperPolyPoints[1] = [-80, -31];
+LFlipperPolyPoints[0] = [0, 0];
+LFlipperPolyPos = [180,500];
+
+var LFlipperSd = new b2CircleDef();
+var LFlipperBd = new b2BodyDef();
+
+LFlipperSd.radius = pixelToB2dCoords(20, 0).x;
+var LFlipperPos = pixelToB2dCoords(110, 452);
+LFlipperBd.allowSleep = false;
+LFlipperBd.position.Set(LFlipperPos.x, LFlipperPos.y);
+var LFlipperCircleBody = b2.world.CreateBody(LFlipperBd);
+LFlipperCircleBody.CreateShape(LFlipperSd);
+var LFlipperPolyBody = createPoly(b2.world, LFlipperPolyPos[0], LFlipperPolyPos[1], LFlipperPolyPoints, false, {drawShape:true, allowSleep:false, shapeName:"LFlipperPoly"});
+LFlipperPolyBody.SetMassFromShapes();
+LFlipperPolyBody.isBullet = true;
+var LFlipperJointDef = new b2RevoluteJointDef();
+
+LFlipperJointDef.Initialize(LFlipperPolyBody, LFlipperCircleBody, LFlipperCircleBody.m_xf.position);
+LFlipperJointDef.userData = {jointName : "LFlipper"};
 
 //	LFlipperJointDef.upperAngle =  0.315 * b2Settings.b2_pi;
-	LFlipperJointDef.upperAngle =  0.25 * b2Settings.b2_pi;
+LFlipperJointDef.upperAngle =  0.25 * b2Settings.b2_pi;
 //	LFlipperJointDef.lowerAngle = -0.001;
-	LFlipperJointDef.lowerAngle = 0.07;
-	LFlipperJointDef.motorTorque = 0;
-	LFlipperJointDef.motorSpeed = 0;
-	LFlipperJointDef.enableLimit = true;
-	LFlipperJointDef.enableMotor = true;
-	
-	gLFlipperJoint = b2.world.CreateJoint(LFlipperJointDef);	
-	
-	
-	// RFlipper
-	var RFlipperPolyPoints = [];
-	RFlipperPolyPoints[1] = [62, -67];
-	RFlipperPolyPoints[2] = [80, -31];
-	RFlipperPolyPoints[0] = [0, 0];
-	RFlipperPolyPos = [219,499];
-	
-	var RFlipperSd = new b2CircleDef();
-	var RFlipperBd = new b2BodyDef();
-	
-	RFlipperSd.radius = pixelToB2dCoords(20, 0).x;
-	var RFlipperPos = pixelToB2dCoords(288, 452);
-	RFlipperBd.allowSleep = false;
-	RFlipperSd.rotation = 1;
-	RFlipperBd.position.Set(RFlipperPos.x, RFlipperPos.y);
-	var RFlipperCircleBody = b2.world.CreateBody(RFlipperBd);
-	RFlipperCircleBody.CreateShape(RFlipperSd);
-	var RFlipperPolyBody = createPoly(b2.world, RFlipperPolyPos[0], RFlipperPolyPos[1], RFlipperPolyPoints, false, {drawShape:true, allowSleep:false, shapeName:"RFlipperPoly"});
-	RFlipperPolyBody.SetMassFromShapes();
-	var RFlipperJointDef = new b2RevoluteJointDef();
-	
-	RFlipperJointDef.Initialize(RFlipperPolyBody, RFlipperCircleBody, RFlipperCircleBody.m_xf.position);
-	RFlipperJointDef.userData = {jointName : "RFlipper"};
+LFlipperJointDef.lowerAngle = 0.07;
+LFlipperJointDef.motorTorque = 0;
+LFlipperJointDef.motorSpeed = 0;
+LFlipperJointDef.enableLimit = true;
+LFlipperJointDef.enableMotor = true;
+
+gLFlipperJoint = b2.world.CreateJoint(LFlipperJointDef);	
+
+
+// RFlipper
+var RFlipperPolyPoints = [];
+RFlipperPolyPoints[1] = [62, -67];
+RFlipperPolyPoints[2] = [80, -31];
+RFlipperPolyPoints[0] = [0, 0];
+RFlipperPolyPos = [219,499];
+
+var RFlipperSd = new b2CircleDef();
+var RFlipperBd = new b2BodyDef();
+
+RFlipperSd.radius = pixelToB2dCoords(20, 0).x;
+var RFlipperPos = pixelToB2dCoords(288, 452);
+RFlipperBd.allowSleep = false;
+RFlipperSd.rotation = 1;
+RFlipperBd.position.Set(RFlipperPos.x, RFlipperPos.y);
+var RFlipperCircleBody = b2.world.CreateBody(RFlipperBd);
+RFlipperCircleBody.CreateShape(RFlipperSd);
+var RFlipperPolyBody = createPoly(b2.world, RFlipperPolyPos[0], RFlipperPolyPos[1], RFlipperPolyPoints, false, {drawShape:true, allowSleep:false, shapeName:"RFlipperPoly"});
+RFlipperPolyBody.SetMassFromShapes();
+var RFlipperJointDef = new b2RevoluteJointDef();
+
+RFlipperJointDef.Initialize(RFlipperPolyBody, RFlipperCircleBody, RFlipperCircleBody.m_xf.position);
+RFlipperJointDef.userData = {jointName : "RFlipper"};
 ;
-	RFlipperJointDef.upperAngle =  0;
+RFlipperJointDef.upperAngle =  0;
 //	RFlipperJointDef.lowerAngle = -0.99;
-	RFlipperJointDef.lowerAngle = -0.77;
-	RFlipperJointDef.motorTorque = 0;
-	RFlipperJointDef.motorSpeed = 0;
-	RFlipperJointDef.enableLimit = true;
-	RFlipperJointDef.enableMotor = true;
-	
-	gRFlipperJoint = b2.world.CreateJoint(RFlipperJointDef);
-	
-	// Trapezoid
-	var TrapezoidPoints = [];
-	TrapezoidPoints[3] = [0,0];
-	TrapezoidPoints[2] = [0, 120];
-	TrapezoidPoints[1] = [40, 80];
-	TrapezoidPoints[0] = [40, 40];
-	var TrapezoidPos = [20, 140];					
-	var TrapezoidBody = createPoly(b2.world, TrapezoidPos[0], TrapezoidPos[1], TrapezoidPoints, true, {drawShape:true, shapeName:"Trapezoid"});
+RFlipperJointDef.lowerAngle = -0.77;
+RFlipperJointDef.motorTorque = 0;
+RFlipperJointDef.motorSpeed = 0;
+RFlipperJointDef.enableLimit = true;
+RFlipperJointDef.enableMotor = true;
 
-	// LFlipperBox
-	var LFlipperUpperBoxPoints = [];
-	LFlipperUpperBoxPoints[0] = [0,0];
-	LFlipperUpperBoxPoints[1] = [52,28];
-	LFlipperUpperBoxPoints[2] = [40,60];
-	LFlipperUpperBoxPoints[3] = [0,60];
-	var LFlipperUpperBoxPos = [42, 400];					
-	var LFlipperUpperBoxBody = createPoly(b2.world, LFlipperUpperBoxPos[0], LFlipperUpperBoxPos[1], LFlipperUpperBoxPoints, true, {drawShape:true, shapeName:"LFlipperUpperBox"});
+gRFlipperJoint = b2.world.CreateJoint(RFlipperJointDef);
 
-	var LFlipperLowerBoxPoints = [];
-	LFlipperLowerBoxPoints[0] = [0,0];
-	LFlipperLowerBoxPoints[1] = [40,0];
-	LFlipperLowerBoxPoints[2] = [140,60];
-	LFlipperLowerBoxPoints[3] = [0,60];
-	var LFlipperLowerBoxPos = [42,460];					
-	var LFlipperLowerBoxBody = createPoly(b2.world, LFlipperLowerBoxPos[0], LFlipperLowerBoxPos[1], LFlipperLowerBoxPoints, true, {drawShape:true, shapeName:"LFlipperLowerBox"});
+// Trapezoid
+var TrapezoidPoints = [];
+TrapezoidPoints[3] = [0,0];
+TrapezoidPoints[2] = [0, 120];
+TrapezoidPoints[1] = [40, 80];
+TrapezoidPoints[0] = [40, 40];
+var TrapezoidPos = [20, 140];					
+var TrapezoidBody = createPoly(b2.world, TrapezoidPos[0], TrapezoidPos[1], TrapezoidPoints, true, {drawShape:true, shapeName:"Trapezoid"});
 
-	// RFlipperBox
-	var RFlipperUpperBoxPoints = [];
-	RFlipperUpperBoxPoints[0] = [0,-2];
-	RFlipperUpperBoxPoints[1] = [0,60];
-	RFlipperUpperBoxPoints[2] = [-40,60];
-	RFlipperUpperBoxPoints[3] = [-58,28];
-	var RFlipperUpperBoxPos = [358, 400];					
-	var RFlipperUpperBoxBody = createPoly(b2.world, RFlipperUpperBoxPos[0], RFlipperUpperBoxPos[1], RFlipperUpperBoxPoints, true, {drawShape:true, shapeName:"RFlipperUpperBox"});
+// LFlipperBox
+var LFlipperUpperBoxPoints = [];
+LFlipperUpperBoxPoints[0] = [0,0];
+LFlipperUpperBoxPoints[1] = [52,28];
+LFlipperUpperBoxPoints[2] = [40,60];
+LFlipperUpperBoxPoints[3] = [0,60];
+var LFlipperUpperBoxPos = [42, 400];					
+var LFlipperUpperBoxBody = createPoly(b2.world, LFlipperUpperBoxPos[0], LFlipperUpperBoxPos[1], LFlipperUpperBoxPoints, true, {drawShape:true, shapeName:"LFlipperUpperBox"});
 
+var LFlipperLowerBoxPoints = [];
+LFlipperLowerBoxPoints[0] = [0,0];
+LFlipperLowerBoxPoints[1] = [40,0];
+LFlipperLowerBoxPoints[2] = [140,60];
+LFlipperLowerBoxPoints[3] = [0,60];
+var LFlipperLowerBoxPos = [42,460];					
+var LFlipperLowerBoxBody = createPoly(b2.world, LFlipperLowerBoxPos[0], LFlipperLowerBoxPos[1], LFlipperLowerBoxPoints, true, {drawShape:true, shapeName:"LFlipperLowerBox"});
 
-	var RFlipperLowerBoxPoints = [];
-	RFlipperLowerBoxPoints[0] = [0,0];
-	RFlipperLowerBoxPoints[1] = [0, 60];
-	RFlipperLowerBoxPoints[2] = [-140, 60];
-	RFlipperLowerBoxPoints[3] = [-40, 0];
-	var RFlipperLowerBoxPos = [358, 460];					
-	var RFlipperLowerBoxBody = createPoly(b2.world, RFlipperLowerBoxPos[0], RFlipperLowerBoxPos[1], RFlipperLowerBoxPoints, true, {drawShape:true, shapeName:"RFlipperLowerBox"});
-
-	// ULTriangle
-	var ULTrianglePoints = [];
-	ULTrianglePoints[0] = [0,0];
-	ULTrianglePoints[1] = [50,0];
-	ULTrianglePoints[2] = [50,50];
-	var ULTrianglePos = [330, 20];					
-	var ULTriangleBody = createPoly(b2.world, ULTrianglePos[0], ULTrianglePos[1], ULTrianglePoints, true, {drawShape:true, shapeName:"URTriangle"});
-
-	// URTriangle
-	var URTrianglePoints = [];
-	URTrianglePoints[0] = [0,0];
-	URTrianglePoints[1] = [80,0];
-	URTrianglePoints[2] = [0,80];
-	var URTrianglePos = [20, 20];					
-	var URTriangleBody = createPoly(b2.world, URTrianglePos[0], URTrianglePos[1], URTrianglePoints, true, {drawShape:true, shapeName:"ULTriangle"});
-
-	// BallCatcherUpperBox
-	var BallCatcherUpperBoxPoints = [];
-	BallCatcherUpperBoxPoints[0] = [0,0];
-	BallCatcherUpperBoxPoints[1] = [0,110];
-	BallCatcherUpperBoxPoints[2] = [-60,110];
-	BallCatcherUpperBoxPoints[3] = [-60,100];
-	var BallCatcherUpperBoxPos = [360, 100];					
-	var BallCatcherUpperBoxBody = createPoly(b2.world, BallCatcherUpperBoxPos[0], BallCatcherUpperBoxPos[1], BallCatcherUpperBoxPoints, true, {drawShape:true, shapeName:"BallCatcherUpperBox"});
+// RFlipperBox
+var RFlipperUpperBoxPoints = [];
+RFlipperUpperBoxPoints[0] = [0,-2];
+RFlipperUpperBoxPoints[1] = [0,60];
+RFlipperUpperBoxPoints[2] = [-40,60];
+RFlipperUpperBoxPoints[3] = [-58,28];
+var RFlipperUpperBoxPos = [358, 400];					
+var RFlipperUpperBoxBody = createPoly(b2.world, RFlipperUpperBoxPos[0], RFlipperUpperBoxPos[1], RFlipperUpperBoxPoints, true, {drawShape:true, shapeName:"RFlipperUpperBox"});
 
 
-	// BallCatcherLowerBox
-	var BallCatcherLowerBoxPoints = [];
-	BallCatcherLowerBoxPoints[0] = [0,0];
-	BallCatcherLowerBoxPoints[1] = [32,0];
-	BallCatcherLowerBoxPoints[2] = [32,34];
-	BallCatcherLowerBoxPoints[3] = [0,34];
-	var BallCatcherLowerBoxPos = [328,210];
-	var BallCatcherLowerBoxBody = createPoly(b2.world, BallCatcherLowerBoxPos[0], BallCatcherLowerBoxPos[1], BallCatcherLowerBoxPoints, true, {drawShape:true, shapeName:"BallCatcherLowerBox"});
+var RFlipperLowerBoxPoints = [];
+RFlipperLowerBoxPoints[0] = [0,0];
+RFlipperLowerBoxPoints[1] = [0, 60];
+RFlipperLowerBoxPoints[2] = [-140, 60];
+RFlipperLowerBoxPoints[3] = [-40, 0];
+var RFlipperLowerBoxPos = [358, 460];					
+var RFlipperLowerBoxBody = createPoly(b2.world, RFlipperLowerBoxPos[0], RFlipperLowerBoxPos[1], RFlipperLowerBoxPoints, true, {drawShape:true, shapeName:"RFlipperLowerBox"});
 
-	// BallCatcherLowerBoxAddon
-	var BallCatcherLowerBoxAddonPoints = [];
-	BallCatcherLowerBoxAddonPoints[0] = [0,0];
-	BallCatcherLowerBoxAddonPoints[1] = [7,0];
-	BallCatcherLowerBoxAddonPoints[2] = [7,15];
-	BallCatcherLowerBoxAddonPoints[3] = [0,15];
-	var BallCatcherLowerBoxAddonPos = [321,230];					
-	var BallCatcherLowerBoxAddonBody = createPoly(b2.world, BallCatcherLowerBoxAddonPos[0], BallCatcherLowerBoxAddonPos[1], BallCatcherLowerBoxAddonPoints, true, {drawShape:false, shapeName:"BallCatcherLowerBoxAddon"});
+// ULTriangle
+var ULTrianglePoints = [];
+ULTrianglePoints[0] = [0,0];
+ULTrianglePoints[1] = [50,0];
+ULTrianglePoints[2] = [50,50];
+var ULTrianglePos = [330, 20];					
+var ULTriangleBody = createPoly(b2.world, ULTrianglePos[0], ULTrianglePos[1], ULTrianglePoints, true, {drawShape:true, shapeName:"URTriangle"});
 
-	// BallCatcher
-	var BallCatcherPoints = [];
-	BallCatcherPoints[2] = [0,0];
-	BallCatcherPoints[1] = [20,20];
-	BallCatcherPoints[0] = [20,0];
-	var BallCatcherPos = [308,210];
-	var BallCatcherBody = createPoly(b2.world, BallCatcherPos[0], BallCatcherPos[1], BallCatcherPoints, true, {drawShape:true, restitution:0, shapeName:"BallCatcher"});
+// URTriangle
+var URTrianglePoints = [];
+URTrianglePoints[0] = [0,0];
+URTrianglePoints[1] = [80,0];
+URTrianglePoints[2] = [0,80];
+var URTrianglePos = [20, 20];					
+var URTriangleBody = createPoly(b2.world, URTrianglePos[0], URTrianglePos[1], URTrianglePoints, true, {drawShape:true, shapeName:"ULTriangle"});
 
-	// LowerBumper
-	var LowerBumperDef = new b2CircleDef();
-	var LowerBumperRadius = pixelToB2dCoords(31, 0);
-	LowerBumperDef.radius = LowerBumperRadius.x;
-	LowerBumperDef.restitution = gBoardElementRestitution;
-	LowerBumperDef.friction = gBoardElementFriction;
-	LowerBumperDef.userData = {shapeName:"LowerBumper", drawShape:true};
-	var LowerBumperBodyDef = new b2BodyDef();
+// BallCatcherUpperBox
+var BallCatcherUpperBoxPoints = [];
+BallCatcherUpperBoxPoints[0] = [0,0];
+BallCatcherUpperBoxPoints[1] = [0,110];
+BallCatcherUpperBoxPoints[2] = [-60,110];
+BallCatcherUpperBoxPoints[3] = [-60,100];
+var BallCatcherUpperBoxPos = [360, 100];					
+var BallCatcherUpperBoxBody = createPoly(b2.world, BallCatcherUpperBoxPos[0], BallCatcherUpperBoxPos[1], BallCatcherUpperBoxPoints, true, {drawShape:true, shapeName:"BallCatcherUpperBox"});
+
+
+// BallCatcherLowerBox
+var BallCatcherLowerBoxPoints = [];
+BallCatcherLowerBoxPoints[0] = [0,0];
+BallCatcherLowerBoxPoints[1] = [32,0];
+BallCatcherLowerBoxPoints[2] = [32,34];
+BallCatcherLowerBoxPoints[3] = [0,34];
+var BallCatcherLowerBoxPos = [328,210];
+var BallCatcherLowerBoxBody = createPoly(b2.world, BallCatcherLowerBoxPos[0], BallCatcherLowerBoxPos[1], BallCatcherLowerBoxPoints, true, {drawShape:true, shapeName:"BallCatcherLowerBox"});
+
+// BallCatcherLowerBoxAddon
+var BallCatcherLowerBoxAddonPoints = [];
+BallCatcherLowerBoxAddonPoints[0] = [0,0];
+BallCatcherLowerBoxAddonPoints[1] = [7,0];
+BallCatcherLowerBoxAddonPoints[2] = [7,15];
+BallCatcherLowerBoxAddonPoints[3] = [0,15];
+var BallCatcherLowerBoxAddonPos = [321,230];					
+var BallCatcherLowerBoxAddonBody = createPoly(b2.world, BallCatcherLowerBoxAddonPos[0], BallCatcherLowerBoxAddonPos[1], BallCatcherLowerBoxAddonPoints, true, {drawShape:false, shapeName:"BallCatcherLowerBoxAddon"});
+
+// BallCatcher
+var BallCatcherPoints = [];
+BallCatcherPoints[2] = [0,0];
+BallCatcherPoints[1] = [20,20];
+BallCatcherPoints[0] = [20,0];
+var BallCatcherPos = [308,210];
+var BallCatcherBody = createPoly(b2.world, BallCatcherPos[0], BallCatcherPos[1], BallCatcherPoints, true, {drawShape:true, restitution:0, shapeName:"BallCatcher"});
+
+// LowerBumper
+var LowerBumperDef = new b2CircleDef();
+var LowerBumperRadius = pixelToB2dCoords(31, 0);
+LowerBumperDef.radius = LowerBumperRadius.x;
+LowerBumperDef.restitution = gBoardElementRestitution;
+LowerBumperDef.friction = gBoardElementFriction;
+LowerBumperDef.userData = {shapeName:"LowerBumper", drawShape:true};
+var LowerBumperBodyDef = new b2BodyDef();
 //	LowerBumperBodyDef.AddShape(LowerBumperDef);
-	var LowerBumperPos = pixelToB2dCoords(170,190)
-	LowerBumperBodyDef.position.Set(LowerBumperPos.x, LowerBumperPos.y);
-	var LowerBumperBody = b2.world.CreateBody(LowerBumperBodyDef);
-	LowerBumperBody.CreateShape(LowerBumperDef);
+var LowerBumperPos = pixelToB2dCoords(170,190)
+LowerBumperBodyDef.position.Set(LowerBumperPos.x, LowerBumperPos.y);
+var LowerBumperBody = b2.world.CreateBody(LowerBumperBodyDef);
+LowerBumperBody.CreateShape(LowerBumperDef);
 
-	// UpperBumper
-	var UpperBumperDef = new b2CircleDef();
-	var UpperBumperRadius = pixelToB2dCoords(31, 0);
-	UpperBumperDef.radius = UpperBumperRadius.x;
-	UpperBumperDef.restitution = gBoardElementRestitution;
-	UpperBumperDef.friction = gBoardElementFriction;
-	UpperBumperDef.userData = {shapeName:"UpperBumper", drawShape:true};
-	var UpperBumperBodyDef = new b2BodyDef();
+// UpperBumper
+var UpperBumperDef = new b2CircleDef();
+var UpperBumperRadius = pixelToB2dCoords(31, 0);
+UpperBumperDef.radius = UpperBumperRadius.x;
+UpperBumperDef.restitution = gBoardElementRestitution;
+UpperBumperDef.friction = gBoardElementFriction;
+UpperBumperDef.userData = {shapeName:"UpperBumper", drawShape:true};
+var UpperBumperBodyDef = new b2BodyDef();
 //	UpperBumperBodyDef.AddShape(UpperBumperDef);
-	var UpperBumperPos = pixelToB2dCoords(150,90)
-	UpperBumperBodyDef.position.Set(UpperBumperPos.x, UpperBumperPos.y);
-	var UpperBumperBody = b2.world.CreateBody(UpperBumperBodyDef);
-	UpperBumperBody.CreateShape(UpperBumperDef);
-	
-	// RightBumper
-	var RightBumperDef = new b2CircleDef();
-	var RightBumperRadius = pixelToB2dCoords(31, 0);
-	RightBumperDef.radius = RightBumperRadius.x;
-	RightBumperDef.restitution = gBoardElementRestitution;
-	RightBumperDef.friction = gBoardElementFriction;
-	RightBumperDef.userData = {shapeName:"RightBumper", drawShape:true};
-	var RightBumperBodyDef = new b2BodyDef();
-//	RightBumperBodyDef.AddShape(RightBumperDef);
-	var RightBumperPos = pixelToB2dCoords(250,130)
-	RightBumperBodyDef.position.Set(RightBumperPos.x, RightBumperPos.y);
-	var RightBumperBody = b2.world.CreateBody(RightBumperBodyDef);
-	RightBumperBody.CreateShape(RightBumperDef);
+var UpperBumperPos = pixelToB2dCoords(150,90)
+UpperBumperBodyDef.position.Set(UpperBumperPos.x, UpperBumperPos.y);
+var UpperBumperBody = b2.world.CreateBody(UpperBumperBodyDef);
+UpperBumperBody.CreateShape(UpperBumperDef);
 
-	// Launcher
-	var launcher = new b2PolygonDef();
-	ext = pixelToB2dCoords(7.5, 30);
-	launcher.SetAsBox(ext.x, ext.y);
-	launcher.userData = {
-		drawShape: true,
-		shapeName: "launcher"
-	};
-	launcher.density = 1;
-	launcher.restitution = gBoardElementRestitution;
-	groundBd = new b2BodyDef();
-	pos = pixelToB2dCoords(370, 400);
-	groundBd.position.Set(pos.x, pos.y);
-	groundBd.allowSleep = false;
-	var launcherBody = b2.world.CreateBody(groundBd);
-	launcherBody.CreateShape(launcher);
-	launcherBody.density = .1;
-	launcherBody.SetMassFromShapes();
-	
-	LauncherJoint = new b2PrismaticJointDef();
-	var LJAnchorPoint = pixelToB2dCoords(369,400);
+// RightBumper
+var RightBumperDef = new b2CircleDef();
+var RightBumperRadius = pixelToB2dCoords(31, 0);
+RightBumperDef.radius = RightBumperRadius.x;
+RightBumperDef.restitution = gBoardElementRestitution;
+RightBumperDef.friction = gBoardElementFriction;
+RightBumperDef.userData = {shapeName:"RightBumper", drawShape:true};
+var RightBumperBodyDef = new b2BodyDef();
+//	RightBumperBodyDef.AddShape(RightBumperDef);
+var RightBumperPos = pixelToB2dCoords(250,130)
+RightBumperBodyDef.position.Set(RightBumperPos.x, RightBumperPos.y);
+var RightBumperBody = b2.world.CreateBody(RightBumperBodyDef);
+RightBumperBody.CreateShape(RightBumperDef);
+
+// Launcher
+var launcher = new b2PolygonDef();
+ext = pixelToB2dCoords(7.5, 30);
+launcher.SetAsBox(ext.x, ext.y);
+launcher.userData = {
+drawShape: true,
+shapeName: "launcher"
+};
+launcher.density = 1;
+launcher.restitution = gBoardElementRestitution;
+groundBd = new b2BodyDef();
+pos = pixelToB2dCoords(370, 400);
+groundBd.position.Set(pos.x, pos.y);
+groundBd.allowSleep = false;
+var launcherBody = b2.world.CreateBody(groundBd);
+launcherBody.CreateShape(launcher);
+launcherBody.density = .1;
+launcherBody.SetMassFromShapes();
+
+LauncherJoint = new b2PrismaticJointDef();
+var LJAnchorPoint = pixelToB2dCoords(369,400);
 //	LauncherJoint.anchorPoint = new b2Vec2(LJAnchorPoint.x, LJAnchorPoint.y);
-	
-	LauncherJoint.Initialize(launcherBody, b2.world.GetGroundBody(), 
-							new b2Vec2(LJAnchorPoint.x, LJAnchorPoint.y), new b2Vec2(0, -1));
+
+LauncherJoint.Initialize(launcherBody, b2.world.GetGroundBody(), 
+new b2Vec2(LJAnchorPoint.x, LJAnchorPoint.y), new b2Vec2(0, -1));
 //	LauncherJoint.body2 = b2.world.GetGroundBody();
 //	LauncherJoint.body1 = launcherBody;
 //	LauncherJoint.axis = new b2Vec2(0, -1);
-	var LJTransLimit = pixelToB2dCoords(70,-51);
-	LauncherJoint.upperTranslation = LJTransLimit.x;
-	LauncherJoint.lowerTranslation = LJTransLimit.y;
-	LauncherJoint.enableLimit = true;
-	LauncherJoint.enableMotor = true;
-	LauncherJoint.motorForce = 1000;
-	LauncherJoint.motorSpeed = 1000;
-	gLauncherJoint = b2.world.CreateJoint(LauncherJoint);
+var LJTransLimit = pixelToB2dCoords(70,-51);
+LauncherJoint.upperTranslation = LJTransLimit.x;
+LauncherJoint.lowerTranslation = LJTransLimit.y;
+LauncherJoint.enableLimit = true;
+LauncherJoint.enableMotor = true;
+LauncherJoint.motorForce = 1000;
+LauncherJoint.motorSpeed = 1000;
+gLauncherJoint = b2.world.CreateJoint(LauncherJoint);
 }
 
 
 function createPoly (world, x, y, points, fixed, userData) {
-	var polySd = new b2PolygonDef();
-	if (!fixed) polySd.density = 5.0;
-	polySd.vertexCount = points.length;
-	polySd.userData = userData;
-	if (userData.restitution != undefined) {
-		polySd.restitution = userData.restitution;
-	}
-	for (var i = 0; i < points.length; i++) {
-		var point = pixelToB2dCoords(points[i][0], points[i][1]);
-		polySd.vertices[i].Set(point.x, point.y);
-	}
-	var polyBd = new b2BodyDef();
-	if (userData != null && userData.allowSleep == false) {
-		polyBd.allowSleep = false;
-	}
+var polySd = new b2PolygonDef();
+if (!fixed) polySd.density = 5.0;
+polySd.vertexCount = points.length;
+polySd.userData = userData;
+if (userData.restitution != undefined) {
+polySd.restitution = userData.restitution;
+}
+for (var i = 0; i < points.length; i++) {
+var point = pixelToB2dCoords(points[i][0], points[i][1]);
+polySd.vertices[i].Set(point.x, point.y);
+}
+var polyBd = new b2BodyDef();
+if (userData != null && userData.allowSleep == false) {
+polyBd.allowSleep = false;
+}
 //	polyBd.AddShape(polySd);
-	var pos = pixelToB2dCoords(x, y);
-	polyBd.position.Set(pos.x, pos.y);	
-	var body = world.CreateBody(polyBd);
-	body.CreateShape(polySd);
-	return body;
+var pos = pixelToB2dCoords(x, y);
+polyBd.position.Set(pos.x, pos.y);	
+var body = world.CreateBody(polyBd);
+body.CreateShape(polySd);
+return body;
 };
-	</script>
-	<script>
+</script>
+<script>
 //util.js
 
 var gCoordinateScaleFactor = 20;
@@ -835,171 +835,171 @@ var gCoordinateScaleFactor = 20;
 // Takes two points, or just a vector
 function b2dToPixelCoords(xOrVector, y)
 {
-	var point = {x:0, y:0};
+var point = {x:0, y:0};
 
-	if (y == undefined) { // it's a vector
-		var vec = xOrVector;
-		point.y = vec.y * gCoordinateScaleFactor; 
-		point.x = vec.x * gCoordinateScaleFactor;
-	}
-	else { // it's two points
-		var x = xOrVector;
-		point.x = x * gCoordinateScaleFactor;
-		point.y = y * gCoordinateScaleFactor;		
-	}
+if (y == undefined) { // it's a vector
+var vec = xOrVector;
+point.y = vec.y * gCoordinateScaleFactor; 
+point.x = vec.x * gCoordinateScaleFactor;
+}
+else { // it's two points
+var x = xOrVector;
+point.x = x * gCoordinateScaleFactor;
+point.y = y * gCoordinateScaleFactor;		
+}
 
-	return point;			
+return point;			
 }
 function pixelToB2dCoords(xOrVector, y)
 {
-	var point = {x:0, y:0};
+var point = {x:0, y:0};
 
-	if (y == undefined) { // it's a vector
-		var vec = xOrVector;
-		point.y = vec.y / gCoordinateScaleFactor; 
-		point.x = vec.x / gCoordinateScaleFactor;
-	}
-	else { // it's two points
-		var x = xOrVector;
-		point.x = x / gCoordinateScaleFactor;
-		point.y = y / gCoordinateScaleFactor;		
-	}
+if (y == undefined) { // it's a vector
+var vec = xOrVector;
+point.y = vec.y / gCoordinateScaleFactor; 
+point.x = vec.x / gCoordinateScaleFactor;
+}
+else { // it's two points
+var x = xOrVector;
+point.x = x / gCoordinateScaleFactor;
+point.y = y / gCoordinateScaleFactor;		
+}
 
-	return point;			
+return point;			
 }
 
 function initWorld()
 {	
-	var b2 = gB2;
-	
-	// Set up the axis-aligned bounding box
-	b2.aabb = new b2AABB();
-	
-	var minpoint = pixelToB2dCoords(-100, -100);
-	var maxpoint = pixelToB2dCoords(1000, 1000);
-	b2.aabb.lowerBound.Set(minpoint.x, minpoint.y);
-	b2.aabb.upperBound.Set(maxpoint.x, maxpoint.y);
-	
-	b2.gravity = new b2Vec2(0, 11);
-	b2.doSleep = true;
-	
-	// Create the world
-	b2.world = new b2World(b2.aabb, b2.gravity, b2.doSleep);
-	
-	b2.toString = function() {
-		return "Hi this is a b2 object!";		
-		};
+var b2 = gB2;
 
-	initBoard();	
-	debugLog("B2world sez: " + gB2);
+// Set up the axis-aligned bounding box
+b2.aabb = new b2AABB();
+
+var minpoint = pixelToB2dCoords(-100, -100);
+var maxpoint = pixelToB2dCoords(1000, 1000);
+b2.aabb.lowerBound.Set(minpoint.x, minpoint.y);
+b2.aabb.upperBound.Set(maxpoint.x, maxpoint.y);
+
+b2.gravity = new b2Vec2(0, 11);
+b2.doSleep = true;
+
+// Create the world
+b2.world = new b2World(b2.aabb, b2.gravity, b2.doSleep);
+
+b2.toString = function() {
+return "Hi this is a b2 object!";		
+};
+
+initBoard();	
+debugLog("B2world sez: " + gB2);
 }
 
 
 function drawWorld(world, context) {
-	for (var j = world.m_jointList; j; j = j.m_next) {
-		// TODO: Fix joint drawing for b2d2.
-		// drawJoint(j, context);
-	}
-	for (var b = world.m_bodyList; b; b = b.m_next) {
-		for (var s = b.GetShapeList(); s != null; s = s.GetNext()) {
-			drawShape(s, context);
-		}
-	}
+for (var j = world.m_jointList; j; j = j.m_next) {
+// TODO: Fix joint drawing for b2d2.
+// drawJoint(j, context);
+}
+for (var b = world.m_bodyList; b; b = b.m_next) {
+for (var s = b.GetShapeList(); s != null; s = s.GetNext()) {
+drawShape(s, context);
+}
+}
 }
 function drawJoint(joint, context) {
-	var b1 = joint.m_body1;
-	var b2 = joint.m_body2;
-	var x1 = b1.m_position;
-	var x2 = b2.m_position;
-	var p1 = joint.GetAnchor1();
-	var p2 = joint.GetAnchor2();
-	context.strokeStyle = '#00eeee';
-	context.beginPath();
-	switch (joint.m_type) {
-	case b2Joint.e_distanceJoint:
-		context.moveTo(p1.x, p1.y);
-		context.lineTo(p2.x, p2.y);
-		break;
+var b1 = joint.m_body1;
+var b2 = joint.m_body2;
+var x1 = b1.m_position;
+var x2 = b2.m_position;
+var p1 = joint.GetAnchor1();
+var p2 = joint.GetAnchor2();
+context.strokeStyle = '#00eeee';
+context.beginPath();
+switch (joint.m_type) {
+case b2Joint.e_distanceJoint:
+context.moveTo(p1.x, p1.y);
+context.lineTo(p2.x, p2.y);
+break;
 
-	case b2Joint.e_pulleyJoint:
-		// TODO
-		break;
+case b2Joint.e_pulleyJoint:
+// TODO
+break;
 
-	default:
-		if (b1 == gB2.world.m_groundBody) {
-			context.moveTo(p1.x, p1.y);
-			context.lineTo(x2.x, x2.y);
-		}
-		else if (b2 == gB2.world.m_groundBody) {
-			context.moveTo(p1.x, p1.y);
-			context.lineTo(x1.x, x1.y);
-		}
-		else {
-			context.moveTo(x1.x, x1.y);
-			context.lineTo(p1.x, p1.y);
-			context.lineTo(x2.x, x2.y);
-			context.lineTo(p2.x, p2.y);
-		}
-		break;
-	}
-	context.stroke();
+default:
+if (b1 == gB2.world.m_groundBody) {
+context.moveTo(p1.x, p1.y);
+context.lineTo(x2.x, x2.y);
+}
+else if (b2 == gB2.world.m_groundBody) {
+context.moveTo(p1.x, p1.y);
+context.lineTo(x1.x, x1.y);
+}
+else {
+context.moveTo(x1.x, x1.y);
+context.lineTo(p1.x, p1.y);
+context.lineTo(x2.x, x2.y);
+context.lineTo(p2.x, p2.y);
+}
+break;
+}
+context.stroke();
 }
 
 
 function drawShape(shape, context) {
-	if (shape.m_userData == null || shape.m_userData.drawShape != false) {
-		context.strokeStyle = '#FF7700';
-		context.lineWidth=5;
-		context.beginPath();
-		switch (shape.m_type) {
-			case b2Shape.e_circleShape:{
-				var circle = shape;
-				//var pos = circle.m_position;
-				//var r = circle.m_radius;
-				
-				var circlePos = circle.m_body.GetWorldCenter();
-				
-				var pos = b2dToPixelCoords(circlePos.x, circlePos.y);
-				var r = b2dToPixelCoords(circle.m_radius, circle.m_radius).x;
-				
-				context.arc(pos.x, pos.y, r, 0, 2 * Math.PI, false);
-			}
-break;
-			case b2Shape.e_polygonShape:{
-				var m_xf = shape.m_body.m_xf;
-				var poly = shape;
-				
-				var tV = b2Math.AddVV(m_xf.position, b2Math.b2MulMV(m_xf.R, shape.m_vertices[0]));
-				var tVp = b2dToPixelCoords(tV);
-				context.moveTo(tVp.x, tVp.y);
-				
-				
-				// Drawing hack for flippers
-				var bDrawFlipper = false;
-				if (shape.m_userData != undefined && (shape.m_userData.shapeName == "LFlipperPoly" || shape.m_userData.shapeName == "RFlipperPoly"))
-				{
-					bDrawFlipper = true;
-				}
-												
-				for (var i = 0; i < poly.m_vertexCount; i++) {
-					var v = b2Math.AddVV(m_xf.position, b2Math.b2MulMV(m_xf.R, shape.m_vertices[i]));
-					var vp = b2dToPixelCoords(v);
-					if (bDrawFlipper && i == 2) { // we don't want to close the flipper polygons.
-						context.moveTo(vp.x, vp.y);
-					}
-					else {
-						context.lineTo(vp.x, vp.y);
-					}
-				}
-				context.lineTo(tVp.x, tVp.y);
-			}
-break;
-		}
-		context.stroke();
-	}
+if (shape.m_userData == null || shape.m_userData.drawShape != false) {
+context.strokeStyle = '#FF7700';
+context.lineWidth=5;
+context.beginPath();
+switch (shape.m_type) {
+case b2Shape.e_circleShape:{
+var circle = shape;
+//var pos = circle.m_position;
+//var r = circle.m_radius;
+
+var circlePos = circle.m_body.GetWorldCenter();
+
+var pos = b2dToPixelCoords(circlePos.x, circlePos.y);
+var r = b2dToPixelCoords(circle.m_radius, circle.m_radius).x;
+
+context.arc(pos.x, pos.y, r, 0, 2 * Math.PI, false);
 }
-	</script>
-	<script>
+break;
+case b2Shape.e_polygonShape:{
+var m_xf = shape.m_body.m_xf;
+var poly = shape;
+
+var tV = b2Math.AddVV(m_xf.position, b2Math.b2MulMV(m_xf.R, shape.m_vertices[0]));
+var tVp = b2dToPixelCoords(tV);
+context.moveTo(tVp.x, tVp.y);
+
+
+// Drawing hack for flippers
+var bDrawFlipper = false;
+if (shape.m_userData != undefined && (shape.m_userData.shapeName == "LFlipperPoly" || shape.m_userData.shapeName == "RFlipperPoly"))
+{
+bDrawFlipper = true;
+}
+
+for (var i = 0; i < poly.m_vertexCount; i++) {
+var v = b2Math.AddVV(m_xf.position, b2Math.b2MulMV(m_xf.R, shape.m_vertices[i]));
+var vp = b2dToPixelCoords(v);
+if (bDrawFlipper && i == 2) { // we don't want to close the flipper polygons.
+context.moveTo(vp.x, vp.y);
+}
+else {
+context.lineTo(vp.x, vp.y);
+}
+}
+context.lineTo(tVp.x, tVp.y);
+}
+break;
+}
+context.stroke();
+}
+}
+</script>
+<script>
 //debugLog.js
 // Globals
 var lineBuffer = [];
@@ -1015,397 +1015,397 @@ var showHideButton; // this button is added to the debug window by the debugging
 
 function debugLog(line)
 {
-    lineBuffer[currentIndex] = line;
-    currentIndex = (currentIndex + 1) % lineBufferLength;
-    flushBuffer();
+lineBuffer[currentIndex] = line;
+currentIndex = (currentIndex + 1) % lineBufferLength;
+flushBuffer();
 }
 
 function debugLogInit(idWindow, numLinesInOutput)
 {    
-    var i;
-    
-    lineBufferLength = numLinesInOutput;
-    // Find the debug window in the document and store a reference
-    debugWindow = document.getElementById(idWindow);
-    // initial index of the circular array
-    currentIndex = 0;
-    
-/*
-    var buttonDiv = document.createElement("div");
-    buttonDiv.style.position = "absolute";
-    buttonDiv.style.top = "0";
-    buttonDiv.style.right = "0";
-         
-    buttonDiv.id = "buttonDiv";
-    debugWindow.appendChild(buttonDiv);
-    
-    // Set up the show/hide button
-    showHideButton = document.createElement("button");
-    showHideButton.value = "Show/Hide"; // default to "hide"
-    showHideButton.style.width = "100px";
-    showHideButton.style.height = "30px";
-    showHideButton.addEventListener("click", onShowHideButtonClick);
-    buttonDiv.appendChild(showHideButton);
+var i;
 
-  */ 
-    debugTextDiv = document.createElement("div");
-    debugWindow.appendChild(debugTextDiv);
-    if (navigator.appName == "Microsoft Internet Explorer") {
-		isIE = true;
-	}
-    debugLog("DebugLog v1.0 Sponsored by border-radius");
+lineBufferLength = numLinesInOutput;
+// Find the debug window in the document and store a reference
+debugWindow = document.getElementById(idWindow);
+// initial index of the circular array
+currentIndex = 0;
+
+/*
+var buttonDiv = document.createElement("div");
+buttonDiv.style.position = "absolute";
+buttonDiv.style.top = "0";
+buttonDiv.style.right = "0";
+
+buttonDiv.id = "buttonDiv";
+debugWindow.appendChild(buttonDiv);
+
+// Set up the show/hide button
+showHideButton = document.createElement("button");
+showHideButton.value = "Show/Hide"; // default to "hide"
+showHideButton.style.width = "100px";
+showHideButton.style.height = "30px";
+showHideButton.addEventListener("click", onShowHideButtonClick);
+buttonDiv.appendChild(showHideButton);
+
+*/ 
+debugTextDiv = document.createElement("div");
+debugWindow.appendChild(debugTextDiv);
+if (navigator.appName == "Microsoft Internet Explorer") {
+isIE = true;
+}
+debugLog("DebugLog v1.0 Sponsored by border-radius");
 }
 
 function onShowHideButtonClick()
 {
-    debugLog("show hide clicked");
+debugLog("show hide clicked");
 }
 
 function flushBuffer()
 {
-    var i;
-    var inOrder = [];
-    var html = "";
-    for (i = 0; i < lineBufferLength; i++) {
-        var line = lineBuffer[(currentIndex + i) % lineBufferLength];
-        
-        if (line != undefined) {
-            inOrder.push(line);
-        }
-    }
-    inOrder.reverse();
-    for (i = 0; i < inOrder.length; i++) {
-		if (isIE) {
-			html = html + inOrder[i] + "\n";		
-		}
-		else {
-			html = html + inOrder[i] + "<br/>";
-		}
-    }
-	if (isIE) {
-		debugTextDiv.innerText = html;
-	}
-	else {
-		debugTextDiv.innerHTML = html;
-	}
+var i;
+var inOrder = [];
+var html = "";
+for (i = 0; i < lineBufferLength; i++) {
+var line = lineBuffer[(currentIndex + i) % lineBufferLength];
+
+if (line != undefined) {
+inOrder.push(line);
 }
-	</script>
-	<script>
+}
+inOrder.reverse();
+for (i = 0; i < inOrder.length; i++) {
+if (isIE) {
+html = html + inOrder[i] + "\n";		
+}
+else {
+html = html + inOrder[i] + "<br/>";
+}
+}
+if (isIE) {
+debugTextDiv.innerText = html;
+}
+else {
+debugTextDiv.innerHTML = html;
+}
+}
+</script>
+<script>
 //scoreboard.js
 var gInitialNumberOfBalls = 3; // start will 3 balls
 var gInitialMultiballLevel = 0; // First multiball is @ 2k points
 
 
 function ScoreBoard(scoreObject, multiballObject, ballsObject) {
-	this.scoreElement = scoreObject;
-	this.multiballElement = multiballObject;
-	this.ballsElement = ballsObject;
-	
-	this.score = 0; // private
-	this.multiballLevel = gInitialMultiballLevel;
-	this.multiball = ScoreBoard.MultiballLevels[this.multiballLevel];
-	this.balls = gInitialNumberOfBalls;
-	
-	this.Update(); 
+this.scoreElement = scoreObject;
+this.multiballElement = multiballObject;
+this.ballsElement = ballsObject;
+
+this.score = 0; // private
+this.multiballLevel = gInitialMultiballLevel;
+this.multiball = ScoreBoard.MultiballLevels[this.multiballLevel];
+this.balls = gInitialNumberOfBalls;
+
+this.Update(); 
 }
 
 ScoreBoard.MultiballLevels = [
-	2,10,25,50,70,100
+2,10,25,50,70,100
 ]
 
 ScoreBoard.prototype.AddScore = function (intScore) 
 {
-	this.score += intScore;
-	this.Update();
+this.score += intScore;
+this.Update();
 }
 
 ScoreBoard.prototype.GetScore = function()
 {
-	return this.score;
+return this.score;
 }
 
 ScoreBoard.prototype.Reset = function () 
 {
-	this.score = 0;
-	this.numBallsRemaining = gInitialNumberOfBalls;
+this.score = 0;
+this.numBallsRemaining = gInitialNumberOfBalls;
 }
 
 ScoreBoard.prototype.Update = function () 
 {
-	if (this.scoreElement.textContent != undefined) {
-		this.scoreElement.textContent = this.score;
-		this.multiballElement.textContent = this.multiball;
-		this.ballsElement.textContent = this.balls;
-	}
-	else {
-		this.scoreElement.innerText = this.score;
-		this.multiballElement.innerText = this.multiball;
-		this.ballsElement.innerText = this.balls;
-	}
+if (this.scoreElement.textContent != undefined) {
+this.scoreElement.textContent = this.score;
+this.multiballElement.textContent = this.multiball;
+this.ballsElement.textContent = this.balls;
+}
+else {
+this.scoreElement.innerText = this.score;
+this.multiballElement.innerText = this.multiball;
+this.ballsElement.innerText = this.balls;
+}
 }
 
 ScoreBoard.prototype.GetMultiball = function()
 {
-	return this.multiball;	
+return this.multiball;	
 }
 
 ScoreBoard.prototype.GoToNextMultiballLevel = function()
 {
-	this.multiballLevel++;
-	if (this.multiballLevel >= ScoreBoard.MultiballLevels.length) {
-		this.multiball += 50;
-	}
-	else {
-		this.multiball = ScoreBoard.MultiballLevels[this.multiballLevel];
-	}	
-	this.Update();
+this.multiballLevel++;
+if (this.multiballLevel >= ScoreBoard.MultiballLevels.length) {
+this.multiball += 50;
+}
+else {
+this.multiball = ScoreBoard.MultiballLevels[this.multiballLevel];
+}	
+this.Update();
 }
 
 ScoreBoard.prototype.GetBallsLeft = function()
 {
-	return this.balls;	
+return this.balls;	
 }
 
 ScoreBoard.prototype.BurnABall = function()
 {
-	this.balls--;
-	this.Update();
+this.balls--;
+this.Update();
 }
-	</script>
-	<script>
+</script>
+<script>
 //animationManager.js
 function AnimationManager(canvasContext)
 {
-	this.animationsInProgress = new Array();
-	
-	this.canvas = canvasContext;	
-	this.defaultAnimationDuration = 15;
-			
+this.animationsInProgress = new Array();
+
+this.canvas = canvasContext;	
+this.defaultAnimationDuration = 15;
+
 }
 
 AnimationManager.AnimationTypes = {
-	LeftTramp		: 0,
-	RightTramp		: 1,
-	UpperBumper		: 2,
-	RightBumper		: 3,
-	LowerBumper		: 4,
-	ULTriangle		: 5,
-	Trapezoid		: 6,
-	CatcherBox		: 7
+LeftTramp		: 0,
+RightTramp		: 1,
+UpperBumper		: 2,
+RightBumper		: 3,
+LowerBumper		: 4,
+ULTriangle		: 5,
+Trapezoid		: 6,
+CatcherBox		: 7
 }
 
 AnimationManager.prototype.DoAnimation = function (animationType)
 {
-	this.animationsInProgress[animationType] = this.defaultAnimationDuration;	
+this.animationsInProgress[animationType] = this.defaultAnimationDuration;	
 }
 
 AnimationManager.prototype.Draw = function ()
 {
-	var ctx = this.canvas;
-	if (this.animationsInProgress[AnimationManager.AnimationTypes.LeftTramp] != undefined &&
-		this.animationsInProgress[AnimationManager.AnimationTypes.LeftTramp] > 0) {
-		ctx.save();
-		ctx.strokeStyle = "rgba(100,100,100," + 
-						this.animationsInProgress[AnimationManager.AnimationTypes.LeftTramp] /
-						this.defaultAnimationDuration
-						 + ")";
-		ctx.lineWidth = 5.0;
-		
-		ctx.beginPath();
-		ctx.moveTo(89, 322);
-		ctx.lineTo(101, 295);
-		ctx.moveTo(105, 352);
-		ctx.lineTo(138, 328);
-		ctx.moveTo(125, 378);
-		ctx.lineTo(170, 375);
-		ctx.stroke();					
-		ctx.restore();		
-		this.animationsInProgress[AnimationManager.AnimationTypes.LeftTramp]--;
-	}
-	if (this.animationsInProgress[AnimationManager.AnimationTypes.RightTramp] != undefined &&
-		this.animationsInProgress[AnimationManager.AnimationTypes.RightTramp] > 0) {
-		ctx.save();
-		ctx.strokeStyle = "rgba(100,100,100," + 
-						this.animationsInProgress[AnimationManager.AnimationTypes.RightTramp] /
-						this.defaultAnimationDuration
-						 + ")";
-		ctx.lineWidth = 5.0;
-		
-		ctx.beginPath();
-		ctx.moveTo(269, 393);
-		ctx.lineTo(235, 385);
-		ctx.moveTo(290, 356);
-		ctx.lineTo(252, 344);
-		ctx.moveTo(307, 319);
-		ctx.lineTo(280, 293);
-		ctx.stroke();					
-		ctx.restore();		
-		this.animationsInProgress[AnimationManager.AnimationTypes.RightTramp]--;
-	}
+var ctx = this.canvas;
+if (this.animationsInProgress[AnimationManager.AnimationTypes.LeftTramp] != undefined &&
+this.animationsInProgress[AnimationManager.AnimationTypes.LeftTramp] > 0) {
+ctx.save();
+ctx.strokeStyle = "rgba(100,100,100," + 
+this.animationsInProgress[AnimationManager.AnimationTypes.LeftTramp] /
+this.defaultAnimationDuration
++ ")";
+ctx.lineWidth = 5.0;
 
-	if (this.animationsInProgress[AnimationManager.AnimationTypes.CatcherBox] != undefined &&
-		this.animationsInProgress[AnimationManager.AnimationTypes.CatcherBox] > 0) {
-		ctx.save();
-		ctx.strokeStyle = "rgba(100,100,100," + 
-						this.animationsInProgress[AnimationManager.AnimationTypes.CatcherBox] /
-						this.defaultAnimationDuration
-						 + ")";
-		ctx.lineWidth = 5.0;
-		
-		ctx.beginPath();
-		ctx.moveTo(306,176);
-		ctx.lineTo(280,176);
-		ctx.moveTo(321,150);
-		ctx.lineTo(303,130);
-		ctx.moveTo(337,126);
-		ctx.lineTo(322,92);
-		ctx.stroke();					
-		ctx.restore();		
-		this.animationsInProgress[AnimationManager.AnimationTypes.CatcherBox]--;
-	}
-		
-	if (this.animationsInProgress[AnimationManager.AnimationTypes.ULTriangle] != undefined &&
-		this.animationsInProgress[AnimationManager.AnimationTypes.ULTriangle] > 0) {
-		ctx.save();
-		ctx.strokeStyle = "rgba(100,100,100," + 
-						this.animationsInProgress[AnimationManager.AnimationTypes.ULTriangle] /
-						this.defaultAnimationDuration
-						 + ")";
-		ctx.lineWidth = 5.0;
-		
-		ctx.beginPath();
-		ctx.moveTo(42,89);
-		ctx.lineTo(47,127);
-		ctx.moveTo(65, 75);
-		ctx.lineTo(92,98);
-		ctx.moveTo(88,55);
-		ctx.lineTo(117,74);
-		ctx.stroke();					
-		ctx.restore();		
-		this.animationsInProgress[AnimationManager.AnimationTypes.ULTriangle]--;
-	}
-		
-	if (this.animationsInProgress[AnimationManager.AnimationTypes.UpperBumper] != undefined &&
-		this.animationsInProgress[AnimationManager.AnimationTypes.UpperBumper] > 0) {
-		ctx.save();
-		ctx.strokeStyle = "rgba(100,100,100," + 
-						this.animationsInProgress[AnimationManager.AnimationTypes.UpperBumper] /
-						this.defaultAnimationDuration
-						 + ")";
-		ctx.lineWidth = 5.0;
-		
-		ctx.beginPath();
+ctx.beginPath();
+ctx.moveTo(89, 322);
+ctx.lineTo(101, 295);
+ctx.moveTo(105, 352);
+ctx.lineTo(138, 328);
+ctx.moveTo(125, 378);
+ctx.lineTo(170, 375);
+ctx.stroke();					
+ctx.restore();		
+this.animationsInProgress[AnimationManager.AnimationTypes.LeftTramp]--;
+}
+if (this.animationsInProgress[AnimationManager.AnimationTypes.RightTramp] != undefined &&
+this.animationsInProgress[AnimationManager.AnimationTypes.RightTramp] > 0) {
+ctx.save();
+ctx.strokeStyle = "rgba(100,100,100," + 
+this.animationsInProgress[AnimationManager.AnimationTypes.RightTramp] /
+this.defaultAnimationDuration
++ ")";
+ctx.lineWidth = 5.0;
 
-		ctx.moveTo(186,103);
-		ctx.lineTo(203,110);
+ctx.beginPath();
+ctx.moveTo(269, 393);
+ctx.lineTo(235, 385);
+ctx.moveTo(290, 356);
+ctx.lineTo(252, 344);
+ctx.moveTo(307, 319);
+ctx.lineTo(280, 293);
+ctx.stroke();					
+ctx.restore();		
+this.animationsInProgress[AnimationManager.AnimationTypes.RightTramp]--;
+}
 
-		ctx.moveTo(162,127);
-		ctx.lineTo(172,141);
+if (this.animationsInProgress[AnimationManager.AnimationTypes.CatcherBox] != undefined &&
+this.animationsInProgress[AnimationManager.AnimationTypes.CatcherBox] > 0) {
+ctx.save();
+ctx.strokeStyle = "rgba(100,100,100," + 
+this.animationsInProgress[AnimationManager.AnimationTypes.CatcherBox] /
+this.defaultAnimationDuration
++ ")";
+ctx.lineWidth = 5.0;
 
-		ctx.moveTo(138,125);
-		ctx.lineTo(126,138);
+ctx.beginPath();
+ctx.moveTo(306,176);
+ctx.lineTo(280,176);
+ctx.moveTo(321,150);
+ctx.lineTo(303,130);
+ctx.moveTo(337,126);
+ctx.lineTo(322,92);
+ctx.stroke();					
+ctx.restore();		
+this.animationsInProgress[AnimationManager.AnimationTypes.CatcherBox]--;
+}
 
-		ctx.moveTo(115,102);
-		ctx.lineTo(105,105);
+if (this.animationsInProgress[AnimationManager.AnimationTypes.ULTriangle] != undefined &&
+this.animationsInProgress[AnimationManager.AnimationTypes.ULTriangle] > 0) {
+ctx.save();
+ctx.strokeStyle = "rgba(100,100,100," + 
+this.animationsInProgress[AnimationManager.AnimationTypes.ULTriangle] /
+this.defaultAnimationDuration
++ ")";
+ctx.lineWidth = 5.0;
 
-		ctx.moveTo(122,62);
-		ctx.lineTo(112,53);
+ctx.beginPath();
+ctx.moveTo(42,89);
+ctx.lineTo(47,127);
+ctx.moveTo(65, 75);
+ctx.lineTo(92,98);
+ctx.moveTo(88,55);
+ctx.lineTo(117,74);
+ctx.stroke();					
+ctx.restore();		
+this.animationsInProgress[AnimationManager.AnimationTypes.ULTriangle]--;
+}
 
-		ctx.moveTo(145,57);
-		ctx.lineTo(145,43);
+if (this.animationsInProgress[AnimationManager.AnimationTypes.UpperBumper] != undefined &&
+this.animationsInProgress[AnimationManager.AnimationTypes.UpperBumper] > 0) {
+ctx.save();
+ctx.strokeStyle = "rgba(100,100,100," + 
+this.animationsInProgress[AnimationManager.AnimationTypes.UpperBumper] /
+this.defaultAnimationDuration
++ ")";
+ctx.lineWidth = 5.0;
 
-		ctx.moveTo(161,57);
-		ctx.lineTo(176,48);
+ctx.beginPath();
 
-		ctx.moveTo(180,76);
-		ctx.lineTo(194,73);
+ctx.moveTo(186,103);
+ctx.lineTo(203,110);
 
-		ctx.stroke();
-		ctx.restore();		
-		this.animationsInProgress[AnimationManager.AnimationTypes.UpperBumper]--;
-	}
-		
-	if (this.animationsInProgress[AnimationManager.AnimationTypes.LowerBumper] != undefined &&
-		this.animationsInProgress[AnimationManager.AnimationTypes.LowerBumper] > 0) {
-		ctx.save();
-		ctx.strokeStyle = "rgba(100,100,100," + 
-						this.animationsInProgress[AnimationManager.AnimationTypes.LowerBumper] /
-						this.defaultAnimationDuration
-						 + ")";
-		ctx.lineWidth = 5.0;
-		
-		ctx.beginPath();
+ctx.moveTo(162,127);
+ctx.lineTo(172,141);
 
-		ctx.moveTo(206,204);
-		ctx.lineTo(221,212);
-		
-		ctx.moveTo(190,227);
-		ctx.lineTo(193,246);
-		
-		ctx.moveTo(155,227);
-		ctx.lineTo(147,241);
-		
-		ctx.moveTo(136,211);
-		ctx.lineTo(126,215);
-		
-		ctx.moveTo(135,179);
-		ctx.lineTo(121,179);
-		
-		ctx.moveTo(154,159);
-		ctx.lineTo(151,147);
-		
-		ctx.moveTo(181,153);
-		ctx.lineTo(192,140);
-		
-		ctx.moveTo(202,165);
-		ctx.lineTo(211,153);
-		
-		ctx.stroke();
-		ctx.restore();		
-		this.animationsInProgress[AnimationManager.AnimationTypes.LowerBumper]--;
-	}
-		
-	if (this.animationsInProgress[AnimationManager.AnimationTypes.RightBumper] != undefined &&
-		this.animationsInProgress[AnimationManager.AnimationTypes.RightBumper] > 0) {
-		ctx.save();
-		ctx.strokeStyle = "rgba(100,100,100," + 
-						this.animationsInProgress[AnimationManager.AnimationTypes.RightBumper] /
-						this.defaultAnimationDuration
-						 + ")";
-		ctx.lineWidth = 5.0;
-		
-		ctx.beginPath();
+ctx.moveTo(138,125);
+ctx.lineTo(126,138);
 
-		ctx.moveTo(282,119);
-		ctx.lineTo(300,119);
-		
-		ctx.moveTo(264,97);
-		ctx.lineTo(273,83);
-		
-		ctx.moveTo(236,97);
-		ctx.lineTo(226,83);
-		
-		ctx.moveTo(218,118);
-		ctx.lineTo(204,114);
-		
-		ctx.moveTo(221,155);
-		ctx.lineTo(216,166);
-		
-		ctx.moveTo(259,164);
-		ctx.lineTo(253,182);
-		
-		ctx.moveTo(283,149);
-		ctx.lineTo(295,157);
-		
-		ctx.stroke();
-		ctx.restore();		
-		this.animationsInProgress[AnimationManager.AnimationTypes.RightBumper]--;
-	}
-		
-	
+ctx.moveTo(115,102);
+ctx.lineTo(105,105);
+
+ctx.moveTo(122,62);
+ctx.lineTo(112,53);
+
+ctx.moveTo(145,57);
+ctx.lineTo(145,43);
+
+ctx.moveTo(161,57);
+ctx.lineTo(176,48);
+
+ctx.moveTo(180,76);
+ctx.lineTo(194,73);
+
+ctx.stroke();
+ctx.restore();		
+this.animationsInProgress[AnimationManager.AnimationTypes.UpperBumper]--;
+}
+
+if (this.animationsInProgress[AnimationManager.AnimationTypes.LowerBumper] != undefined &&
+this.animationsInProgress[AnimationManager.AnimationTypes.LowerBumper] > 0) {
+ctx.save();
+ctx.strokeStyle = "rgba(100,100,100," + 
+this.animationsInProgress[AnimationManager.AnimationTypes.LowerBumper] /
+this.defaultAnimationDuration
++ ")";
+ctx.lineWidth = 5.0;
+
+ctx.beginPath();
+
+ctx.moveTo(206,204);
+ctx.lineTo(221,212);
+
+ctx.moveTo(190,227);
+ctx.lineTo(193,246);
+
+ctx.moveTo(155,227);
+ctx.lineTo(147,241);
+
+ctx.moveTo(136,211);
+ctx.lineTo(126,215);
+
+ctx.moveTo(135,179);
+ctx.lineTo(121,179);
+
+ctx.moveTo(154,159);
+ctx.lineTo(151,147);
+
+ctx.moveTo(181,153);
+ctx.lineTo(192,140);
+
+ctx.moveTo(202,165);
+ctx.lineTo(211,153);
+
+ctx.stroke();
+ctx.restore();		
+this.animationsInProgress[AnimationManager.AnimationTypes.LowerBumper]--;
+}
+
+if (this.animationsInProgress[AnimationManager.AnimationTypes.RightBumper] != undefined &&
+this.animationsInProgress[AnimationManager.AnimationTypes.RightBumper] > 0) {
+ctx.save();
+ctx.strokeStyle = "rgba(100,100,100," + 
+this.animationsInProgress[AnimationManager.AnimationTypes.RightBumper] /
+this.defaultAnimationDuration
++ ")";
+ctx.lineWidth = 5.0;
+
+ctx.beginPath();
+
+ctx.moveTo(282,119);
+ctx.lineTo(300,119);
+
+ctx.moveTo(264,97);
+ctx.lineTo(273,83);
+
+ctx.moveTo(236,97);
+ctx.lineTo(226,83);
+
+ctx.moveTo(218,118);
+ctx.lineTo(204,114);
+
+ctx.moveTo(221,155);
+ctx.lineTo(216,166);
+
+ctx.moveTo(259,164);
+ctx.lineTo(253,182);
+
+ctx.moveTo(283,149);
+ctx.lineTo(295,157);
+
+ctx.stroke();
+ctx.restore();		
+this.animationsInProgress[AnimationManager.AnimationTypes.RightBumper]--;
+}
+
+
 }
 </script>
-	<script>
+<script>
 //demo.js
 // Things that are configurable
 var gFPS = 60;
@@ -1443,369 +1443,385 @@ var gbGameOver = false;
 var gpause = false;
 
 if (window.addEventListener) {
-	window.addEventListener("load", StartGame, false);
+window.addEventListener("load", StartGame, false);
 }
 else {
-	window.attachEvent("onload", StartGame);
+window.attachEvent("onload", StartGame);
 
 }
 
 
 function StartGame()
 {
-	debugLogInit("_debugWindow", 60); // Takes a DIV and a number of lines for the buffer.
-	debugLog("We're running!");
+debugLogInit("_debugWindow", 60); // Takes a DIV and a number of lines for the buffer.
+debugLog("We're running!");
 
-	gCanvas = document.getElementById("pinballCanvas");
-	gCanvas.width=window.innerWidth;
-	gCanvas.height=window.innerHeight;
-	gCCTX = gCanvas.getContext("2d");
+gCanvas = document.getElementById("pinballCanvas");
+gCanvas.width=window.innerWidth;
+gCanvas.height=window.innerHeight;
+gCCTX = gCanvas.getContext("2d");
 
-	gAnimationManager = new AnimationManager(gCCTX);
+gAnimationManager = new AnimationManager(gCCTX);
 
-	gScoreboard = new ScoreBoard(document.getElementById("spScore"),
-		document.getElementById("spMultiball"),
-		document.getElementById("spBalls"));
+gScoreboard = new ScoreBoard(document.getElementById("spScore"),
+document.getElementById("spMultiball"),
+document.getElementById("spBalls"));
 
-	initWorld();
-	initInput();
+initWorld();
+initInput();
 
-	// Create starting ball
-	createBall(gB2.world, gLauncherSpawnPoint.x, gLauncherSpawnPoint.y, .5, false);
-	setInterval(mainLoop, 17);
-
-
+// Create starting ball
+createBall(gB2.world, gLauncherSpawnPoint.x, gLauncherSpawnPoint.y, .5, false);
+setInterval(mainLoop, 17);
 }
 
 function initInput()
 {
-	document.addEventListener("keydown", KeyDown, false);	
-	document.addEventListener("keyup", KeyUp, false);	
-	document.addEventListener("touchstart",function(event){
-		for (var i = 0; i < event.touches.length; i++) {
-			var touch = event.touches[i];
-			if(touch.pageX<205)
-			{
-				gLFlipperPressed=true;
-			}else if(touch.pageX>=205&&touch.pageX<365)
-			{
-				gRFlipperPressed=true;
-			}else if(touch.pageX>=365)
-			{
-				gLauncherPressed = true;
-			}
-		}
-	}
-		,false);
-	document.addEventListener("touchend",function(event){
-		gRFlipperPressed=false;
-		gLFlipperPressed=false;
-		gLauncherPressed = false;
-		for (var i = 0; i < event.touches.length; i++) {
-			var touch = event.touches[i];
-			if(touch.pageX<205)
-			{
-				gLFlipperPressed=true;
-			}else if(touch.pageX>=205&&touch.pageX<365)
-			{
-				gRFlipperPressed=true;
-			}else if(touch.pageX>=365)
-			{
-				gLauncherPressed = true;
-			}
-		}
-	}
-		,false);
+document.addEventListener("keydown", KeyDown, false);	
+document.addEventListener("keyup", KeyUp, false);	
+document.addEventListener("touchstart",function(event){
+if(gpause)
+{
+gpause=false;
+}
+if(gbGameOver)
+{
+gbGameOver=false;
+gScoreboard.score=0;
+gScoreboard.balls=4;
+gScoreboard.multiballLevel=0;
+gScoreboard.multiball=2;
+gRFlipperPressed=false;
+gLFlipperPressed=false;
+gLauncherPressed=false;
+gNumBallsInPlay=0;
+createBall(gB2.world, gLauncherSpawnPoint.x, gLauncherSpawnPoint.y, .5, false);
+gScoreboard.BurnABall();
+}
+for (var i = 0; i < event.touches.length; i++) {
+var touch = event.touches[i];
+if(touch.pageX<225)
+{
+gLFlipperPressed=true;
+}
+if(touch.pageX>=175&&touch.pageX<365)
+{
+gRFlipperPressed=true;
+}
+if(touch.pageX>=365)
+{
+gLauncherPressed = true;
+}
+}
+}
+,false);
+document.addEventListener("touchend",function(event){
+gRFlipperPressed=false;
+gLFlipperPressed=false;
+gLauncherPressed = false;
+for (var i = 0; i < event.touches.length; i++) {
+var touch = event.touches[i];
+if(touch.pageX<225)
+{
+gLFlipperPressed=true;
+}
+if(touch.pageX>=175&&touch.pageX<365)
+{
+gRFlipperPressed=true;
+}
+if(touch.pageX>=365)
+{
+gLauncherPressed = true;
+}
+}
+}
+,false);
 }
 
 function KeyDown(key)
 {
-	if (key.keyCode == 37) {
-		gLFlipperPressed = true;
-	}	
-	if (key.keyCode == 39) {
-		gRFlipperPressed = true;
-	}	
-	if (key.keyCode == 40) {
-		gLauncherPressed = true;
-	}
+if (key.keyCode == 37) {
+gLFlipperPressed = true;
+}	
+if (key.keyCode == 39) {
+gRFlipperPressed = true;
+}	
+if (key.keyCode == 40) {
+gLauncherPressed = true;
+}
 }
 function KeyUp(key)
 {
-	if(!gbGameOver)
-	{
-		if(!gpause)
-		{
-			if (key.keyCode == 37) {
-				gLFlipperPressed = false;
-			}	
-			if (key.keyCode == 39) {
-				gRFlipperPressed = false;
-			}
-			if (key.keyCode == 40) {
-				gLauncherPressed = false;
-			}
-			if(key.keyCode == 32)
-			{
-				gpause=true;
-			}
-		}else
-		{
-			gpause=false;
-		}
-	}else
-	{
-		gbGameOver=false;
-		gScoreboard.score=0;
-		gScoreboard.balls=4;
-		gScoreboard.multiballLevel=0;
-		gScoreboard.multiball=2;
-		gRFlipperPressed=false;
-		gLFlipperPressed=false;
-		gLauncherPressed=false;
-		gNumBallsInPlay=0;
-		createBall(gB2.world, gLauncherSpawnPoint.x, gLauncherSpawnPoint.y, .5, false);
-		gScoreboard.BurnABall();
-	}
+if(!gbGameOver)
+{
+if(!gpause)
+{
+if (key.keyCode == 37) {
+gLFlipperPressed = false;
+}	
+if (key.keyCode == 39) {
+gRFlipperPressed = false;
+}
+if (key.keyCode == 40) {
+gLauncherPressed = false;
+}
+if(key.keyCode == 32)
+{
+gpause=true;
+}
+}else
+{
+gpause=false;
+}
+}else
+{
+gbGameOver=false;
+gScoreboard.score=0;
+gScoreboard.balls=4;
+gScoreboard.multiballLevel=0;
+gScoreboard.multiball=2;
+gRFlipperPressed=false;
+gLFlipperPressed=false;
+gLauncherPressed=false;
+gNumBallsInPlay=0;
+createBall(gB2.world, gLauncherSpawnPoint.x, gLauncherSpawnPoint.y, .5, false);
+gScoreboard.BurnABall();
+}
 }
 
 
 function mainLoop()
 {
-	var b2 = gB2;	
-	var timeStep = 1.0/45;
+var b2 = gB2;	
+var timeStep = 1.0/45;
 
-	if (!gbGameOver) {
-		if(!gpause)
-		{
-			// Check for game conditions (multiball, endgame, etc.)
-			handleGameConditions();
-			// Handle collisions (contacts) between objects that occured in the previous frame
-			handleCollisions();
-			// Grap input
-			handleInput();
-			// Step the physics world
-			var canvas = document.getElementById("pinballCanvas");
-			var ctx = canvas.getContext("2d");
-			ctx.clearRect(0,0,canvas.width,canvas.height);
-			b2.world.Step(timeStep, 3);
-			// Draw the background image
-			// Note that we always want to have animations draw *below* physics objects, so we do that first	
-			gAnimationManager.Draw();
-			// Now draw the physics objects		
-			drawWorld(b2.world, gCCTX);
-		}else
-		{
-			var canvas = document.getElementById("pinballCanvas");
-			var ctx = canvas.getContext("2d");
-			ctx.font = "40px Arial";
-			ctx.fillStyle="#00DD95";
-			ctx.fillText("PAUSE",canvas.width/2-60,canvas.height/2);
-		}
-	}else
-	{
-		var canvas = document.getElementById("pinballCanvas");
-		var ctx = canvas.getContext("2d");
-		ctx.clearRect(0,0,canvas.width,canvas.height);
-		ctx.font = "40px Arial";
-		ctx.fillStyle="#FF0000";
-		ctx.fillText("GAME OVER",canvas.width/2-100,canvas.height/2);
-	}
+if (!gbGameOver) {
+if(!gpause)
+{
+// Check for game conditions (multiball, endgame, etc.)
+handleGameConditions();
+// Handle collisions (contacts) between objects that occured in the previous frame
+handleCollisions();
+// Grap input
+handleInput();
+// Step the physics world
+var canvas = document.getElementById("pinballCanvas");
+var ctx = canvas.getContext("2d");
+ctx.clearRect(0,0,canvas.width,canvas.height);
+b2.world.Step(timeStep, 3);
+// Draw the background image
+// Note that we always want to have animations draw *below* physics objects, so we do that first	
+gAnimationManager.Draw();
+// Now draw the physics objects		
+drawWorld(b2.world, gCCTX);
+}else
+{
+var canvas = document.getElementById("pinballCanvas");
+var ctx = canvas.getContext("2d");
+ctx.font = "40px Arial";
+ctx.fillStyle="#00DD95";
+ctx.fillText("PAUSE",canvas.width/2-60,canvas.height/2);
+}
+}else
+{
+var canvas = document.getElementById("pinballCanvas");
+var ctx = canvas.getContext("2d");
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.font = "40px Arial";
+ctx.fillStyle="#FF0000";
+ctx.fillText("GAME OVER",canvas.width/2-100,canvas.height/2);
+}
 }
 
 function handleGameConditions()
 {
-	// Check to see if we need to lob a new ball onto the launcher
-	if (gNumBallsInPlay == 0 && gScoreboard.GetBallsLeft() > 0) {
-		createBall(gB2.world, gLauncherSpawnPoint.x, gLauncherSpawnPoint.y, .5, false);
-		gScoreboard.BurnABall();
-	}
-
-	// Check the scoreboard and see if we should do multiball.
-	if (gScoreboard.GetScore() > (gScoreboard.GetMultiball()*1000)) {
-		// Multiball!!!
-		doMultiball();
-		gScoreboard.GoToNextMultiballLevel();		
-	}
-
-	// Is the game over?
-	if (gScoreboard.GetBallsLeft() == 0 &&  gNumBallsInPlay == 0) {
-		gbGameOver = true;
-	}		
+// Check to see if we need to lob a new ball onto the launcher
+if (gNumBallsInPlay == 0 && gScoreboard.GetBallsLeft() > 0) {
+createBall(gB2.world, gLauncherSpawnPoint.x, gLauncherSpawnPoint.y, .5, false);
+gScoreboard.BurnABall();
 }
 
+// Check the scoreboard and see if we should do multiball.
+if (gScoreboard.GetScore() > (gScoreboard.GetMultiball()*1000)) {
+// Multiball!!!
+doMultiball();
+gScoreboard.GoToNextMultiballLevel();		
+}
+
+// Is the game over?
+if (gScoreboard.GetBallsLeft() == 0 &&  gNumBallsInPlay == 0) {
+gbGameOver = true;
+}		
+}
 function doMultiball()
 {
-	for (var i = 0; i < 10; i++) {
-		var point = pixelToB2dCoords(305,237);
-		createBall(gB2.world, point.x, point.y, .5, false, "TestBall");
-	}
+for (var i = 0; i < 10; i++) {
+var point = pixelToB2dCoords(305,237);
+createBall(gB2.world, point.x, point.y, .5, false, "TestBall");
 }
-
+}
 function handleCollisions()
 {
-	// Handle contact state, such as turning magnets off and on
-	// This happens every frame regardless of whether or not there are contacts
-	if (gMagnetIsOff) {
-		gNumFramesMagnetHasBeenOffFor++;
-		if (gNumFramesMagnetHasBeenOffFor >= gNumFramesToTurnOffMagnet) {
-			// Turn the magnet back on
-			gMagnetIsOff = false;
-			gNumFramesMagnetHasBeenOffFor = 0;
-		}
-	}
+// Handle contact state, such as turning magnets off and on
+// This happens every frame regardless of whether or not there are contacts
+if (gMagnetIsOff) {
+gNumFramesMagnetHasBeenOffFor++;
+if (gNumFramesMagnetHasBeenOffFor >= gNumFramesToTurnOffMagnet) {
+// Turn the magnet back on
+gMagnetIsOff = false;
+gNumFramesMagnetHasBeenOffFor = 0;
+}
+}
 
 
-	// Handle the actual contacts
-	for (var contact = gB2.world.m_contactList; contact; contact = contact.m_next)
-	{
-		var BumperBounceFactor = 3;
+// Handle the actual contacts
+for (var contact = gB2.world.m_contactList; contact; contact = contact.m_next)
+{
+var BumperBounceFactor = 3;
+// Ball catcher
+if (contact.m_shape1.m_userData != null && contact.m_shape2.m_userData != null) {
+var ball = null;
+if (contact.m_shape1.m_userData.shapeName == "BallCatcher" && contact.m_shape2.m_userData.shapeName == "TestBall") {
+ball = contact.m_shape2;
+}
+if (contact.m_shape2.m_userData.shapeName == "BallCatcher" && contact.m_shape1.m_userData.shapeName == "TestBall") {
+ball = contact.m_shape1;
+}
+
+if (ball != null) {
+// Trap the ball!
+if (gNumFramesBallHasBeenTrappedFor < gNumFramesToTrapBall && !gMagnetIsOff) {
+// Trap the ball by simulating a magnet. Hold it there for a couple of seconds.
+gNumFramesBallHasBeenTrappedFor++;
+var ballPos = ball.m_body.m_xf.position;
+gScoreboard.AddScore(20);
+ball.m_body.ApplyImpulse(new b2Vec2(contact.m_manifolds[0].normal.x * -4, contact.m_manifolds[0].normal.y * -4), ballPos);
+}
+else { // let the ball go.
+gNumFramesBallHasBeenTrappedFor = 0; 
+gMagnetIsOff = true;
+ball.m_body.WakeUp();
+//                        var ballPos = ball.m_body.m_xf.position;
+// Give the ball a little push to get it off the magnet.
+//                        ball.m_body.ApplyImpulse(new b2Vec2(contact.m_manifolds[0].normal.x * BumperBounceFactor*2, contact.m_manifolds[0].normal.y * BumperBounceFactor*2), ballPos);
+}
+
+}
+}
 
 
-		// Ball catcher
-		if (contact.m_shape1.m_userData != null && contact.m_shape2.m_userData != null) {
-			var ball = null;
-			if (contact.m_shape1.m_userData.shapeName == "BallCatcher" && contact.m_shape2.m_userData.shapeName == "TestBall") {
-				ball = contact.m_shape2;
-			}
-			if (contact.m_shape2.m_userData.shapeName == "BallCatcher" && contact.m_shape1.m_userData.shapeName == "TestBall") {
-				ball = contact.m_shape1;
-			}
-
-			if (ball != null) {
-				// Trap the ball!
-				if (gNumFramesBallHasBeenTrappedFor < gNumFramesToTrapBall && !gMagnetIsOff) {
-					// Trap the ball by simulating a magnet. Hold it there for a couple of seconds.
-					gNumFramesBallHasBeenTrappedFor++;
-					var ballPos = ball.m_body.m_xf.position;
-					gScoreboard.AddScore(20);
-					ball.m_body.ApplyImpulse(new b2Vec2(contact.m_manifolds[0].normal.x * -4, contact.m_manifolds[0].normal.y * -4), ballPos);
-				}
-				else { // let the ball go.
-					gNumFramesBallHasBeenTrappedFor = 0; 
-					gMagnetIsOff = true;
-					ball.m_body.WakeUp();
-					//                        var ballPos = ball.m_body.m_xf.position;
-					// Give the ball a little push to get it off the magnet.
-					//                        ball.m_body.ApplyImpulse(new b2Vec2(contact.m_manifolds[0].normal.x * BumperBounceFactor*2, contact.m_manifolds[0].normal.y * BumperBounceFactor*2), ballPos);
-				}
-
-			}
-		}
-
-
-		if (contact.m_manifold.pointCount > 0) {
-			// Trampolines
-			// Left tramp
-			if (contact.m_shape1.m_userData != null && contact.m_shape2.m_userData != null) {
-				var ball = null;
-				if (contact.m_shape1.m_userData.shapeName == "LTramp" && contact.m_shape2.m_userData.shapeName == "TestBall") {
-					ball = contact.m_shape2;
-				}
-				if (contact.m_shape2.m_userData.shapeName == "LTramp" && contact.m_shape1.m_userData.shapeName == "TestBall") {
-					ball = contact.m_shape1;
-				}
-				if (ball != null) {
-					var ballPos = ball.m_body.m_xf.position;
-					if (contact.m_manifolds[0].normal.x > 0.8320 && // Ensure that this is on the outer face of the tramp
-						contact.m_manifolds[0].normal.x < 0.8321 &&
-						contact.m_manifolds[0].normal.y < -0.5547 &&
-						contact.m_manifolds[0].normal.y > -0.5548 &&
-						b2dToPixelCoords(ballPos).y < 410) {
-						ball.m_body.ApplyImpulse(new b2Vec2(BumperBounceFactor, -2*BumperBounceFactor), ballPos);
-						gScoreboard.AddScore(50);
-						gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.LeftTramp);
-					}
-				}
-			}
-			// Right tramp
-			if (contact.m_shape1.m_userData != null && contact.m_shape2.m_userData != null) {
-				var ball = null;
-				if (contact.m_shape1.m_userData.shapeName == "RTramp" && contact.m_shape2.m_userData.shapeName == "TestBall") {
-					ball = contact.m_shape2;
-				}
-				if (contact.m_shape2.m_userData.shapeName == "RTramp" && contact.m_shape1.m_userData.shapeName == "TestBall") {
-					ball = contact.m_shape1;
-				}
-				if (ball != null) {
-					var ballPos = ball.m_body.m_xf.position;
-					if (contact.m_manifolds[0].normal.x < -0.8320 && // Ensure that this is on the outer face of the tramp
-						contact.m_manifolds[0].normal.x > -0.8321 &&
-						contact.m_manifolds[0].normal.y < -0.5547 &&
-						contact.m_manifolds[0].normal.y > -0.5548 &&
-						b2dToPixelCoords(ballPos).y < 410) {
-						ball.m_body.ApplyImpulse(new b2Vec2(-1*BumperBounceFactor, -2*BumperBounceFactor), ballPos);
-						gScoreboard.AddScore(50);
-						gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.RightTramp);
-					}
-				}
-			}
+if (contact.m_manifold.pointCount > 0) {
+// Trampolines
+// Left tramp
+if (contact.m_shape1.m_userData != null && contact.m_shape2.m_userData != null) {
+var ball = null;
+if (contact.m_shape1.m_userData.shapeName == "LTramp" && contact.m_shape2.m_userData.shapeName == "TestBall") {
+ball = contact.m_shape2;
+}
+if (contact.m_shape2.m_userData.shapeName == "LTramp" && contact.m_shape1.m_userData.shapeName == "TestBall") {
+ball = contact.m_shape1;
+}
+if (ball != null) {
+var ballPos = ball.m_body.m_xf.position;
+if (contact.m_manifolds[0].normal.x > 0.8320 && // Ensure that this is on the outer face of the tramp
+contact.m_manifolds[0].normal.x < 0.8321 &&
+contact.m_manifolds[0].normal.y < -0.5547 &&
+contact.m_manifolds[0].normal.y > -0.5548 &&
+b2dToPixelCoords(ballPos).y < 410) {
+ball.m_body.ApplyImpulse(new b2Vec2(BumperBounceFactor, -2*BumperBounceFactor), ballPos);
+gScoreboard.AddScore(50);
+gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.LeftTramp);
+}
+}
+}
+// Right tramp
+if (contact.m_shape1.m_userData != null && contact.m_shape2.m_userData != null) {
+var ball = null;
+if (contact.m_shape1.m_userData.shapeName == "RTramp" && contact.m_shape2.m_userData.shapeName == "TestBall") {
+ball = contact.m_shape2;
+}
+if (contact.m_shape2.m_userData.shapeName == "RTramp" && contact.m_shape1.m_userData.shapeName == "TestBall") {
+ball = contact.m_shape1;
+}
+if (ball != null) {
+var ballPos = ball.m_body.m_xf.position;
+if (contact.m_manifolds[0].normal.x < -0.8320 && // Ensure that this is on the outer face of the tramp
+contact.m_manifolds[0].normal.x > -0.8321 &&
+contact.m_manifolds[0].normal.y < -0.5547 &&
+contact.m_manifolds[0].normal.y > -0.5548 &&
+b2dToPixelCoords(ballPos).y < 410) {
+ball.m_body.ApplyImpulse(new b2Vec2(-1*BumperBounceFactor, -2*BumperBounceFactor), ballPos);
+gScoreboard.AddScore(50);
+gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.RightTramp);
+}
+}
+}
 
 
-			// Bumpers
-			if (contact.m_shape1.m_userData != null && contact.m_shape2.m_userData != null) {
-				var ball = null;
-				if ((contact.m_shape1.m_userData.shapeName == "UpperBumper" || 
-					contact.m_shape1.m_userData.shapeName == "LowerBumper" ||
-					contact.m_shape1.m_userData.shapeName == "Trapezoid" ||
-					contact.m_shape1.m_userData.shapeName == "ULTriangle" ||
-					contact.m_shape1.m_userData.shapeName == "URTriangle" ||
-					contact.m_shape1.m_userData.shapeName == "BallCatcherUpperBox" ||
-					contact.m_shape1.m_userData.shapeName == "RightBumper")
-					&& contact.m_shape2.m_userData.shapeName == "TestBall") {
-					ball = contact.m_shape2;
-				}
-				if ((contact.m_shape2.m_userData.shapeName == "UpperBumper" || 
-					contact.m_shape2.m_userData.shapeName == "Trapezoid" ||
-					contact.m_shape2.m_userData.shapeName == "ULTriangle" ||
-					contact.m_shape2.m_userData.shapeName == "URTriangle" ||
-					contact.m_shape2.m_userData.shapeName == "LowerBumper" ||
-					contact.m_shape2.m_userData.shapeName == "BallCatcherUpperBox" ||
-					contact.m_shape2.m_userData.shapeName == "RightBumper")
-					&& contact.m_shape1.m_userData.shapeName == "TestBall") {
-					ball = contact.m_shape1;
-				}
-				if (ball != null) {
-					var ballPos = ball.m_body.m_xf.position;
-					ball.m_body.ApplyImpulse(new b2Vec2(contact.m_manifolds[0].normal.x*BumperBounceFactor, contact.m_manifolds[0].normal.y*BumperBounceFactor), ballPos);
-					gScoreboard.AddScore(25);
-					var contactedShape = (ball == contact.m_shape1) ? contact.m_shape2 : contact.m_shape1;
+// Bumpers
+if (contact.m_shape1.m_userData != null && contact.m_shape2.m_userData != null) {
+var ball = null;
+if ((contact.m_shape1.m_userData.shapeName == "UpperBumper" || 
+contact.m_shape1.m_userData.shapeName == "LowerBumper" ||
+contact.m_shape1.m_userData.shapeName == "Trapezoid" ||
+contact.m_shape1.m_userData.shapeName == "ULTriangle" ||
+contact.m_shape1.m_userData.shapeName == "URTriangle" ||
+contact.m_shape1.m_userData.shapeName == "BallCatcherUpperBox" ||
+contact.m_shape1.m_userData.shapeName == "RightBumper")
+&& contact.m_shape2.m_userData.shapeName == "TestBall") {
+ball = contact.m_shape2;
+}
+if ((contact.m_shape2.m_userData.shapeName == "UpperBumper" || 
+contact.m_shape2.m_userData.shapeName == "Trapezoid" ||
+contact.m_shape2.m_userData.shapeName == "ULTriangle" ||
+contact.m_shape2.m_userData.shapeName == "URTriangle" ||
+contact.m_shape2.m_userData.shapeName == "LowerBumper" ||
+contact.m_shape2.m_userData.shapeName == "BallCatcherUpperBox" ||
+contact.m_shape2.m_userData.shapeName == "RightBumper")
+&& contact.m_shape1.m_userData.shapeName == "TestBall") {
+ball = contact.m_shape1;
+}
+if (ball != null) {
+var ballPos = ball.m_body.m_xf.position;
+ball.m_body.ApplyImpulse(new b2Vec2(contact.m_manifolds[0].normal.x*BumperBounceFactor, contact.m_manifolds[0].normal.y*BumperBounceFactor), ballPos);
+gScoreboard.AddScore(25);
+var contactedShape = (ball == contact.m_shape1) ? contact.m_shape2 : contact.m_shape1;
 
-					if (contactedShape.m_userData.shapeName == "BallCatcherUpperBox") {
-						//						gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.CatcherBox);
-					}
-					else if (contactedShape.m_userData.shapeName == "ULTriangle") {
-						gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.ULTriangle);
-					}
-					else if (contactedShape.m_userData.shapeName == "UpperBumper") {
-						gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.UpperBumper);
-					}
-					else if (contactedShape.m_userData.shapeName == "LowerBumper") {
-						gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.LowerBumper);
-					}
-					else if (contactedShape.m_userData.shapeName == "RightBumper") {
-						gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.RightBumper);
-					}
-				}
-			}
+if (contactedShape.m_userData.shapeName == "BallCatcherUpperBox") {
+//						gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.CatcherBox);
+}
+else if (contactedShape.m_userData.shapeName == "ULTriangle") {
+gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.ULTriangle);
+}
+else if (contactedShape.m_userData.shapeName == "UpperBumper") {
+gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.UpperBumper);
+}
+else if (contactedShape.m_userData.shapeName == "LowerBumper") {
+gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.LowerBumper);
+}
+else if (contactedShape.m_userData.shapeName == "RightBumper") {
+gAnimationManager.DoAnimation(AnimationManager.AnimationTypes.RightBumper);
+}
+}
+}
 
 
-			// Ground
-			if (contact.m_shape1.m_userData != null && contact.m_shape2.m_userData != null) {
-				var ball = null;
-				if (contact.m_shape1.m_userData.shapeName == "TheGround" && (contact.m_shape2.m_userData.shapeName == "TestBall" || contact.m_shape2.m_userData.shapeName == "MultiBall") ) {
-					ball = contact.m_shape2;
-				}
-				if (contact.m_shape2.m_userData.shapeName == "TheGround" && (contact.m_shape1.m_userData.shapeName == "TestBall" || contact.m_shape1.m_userData.shapeName == "MultiBall") ) {
-					ball = contact.m_shape1;
-				}
-				if (ball != null) {
-					gB2.world.DestroyBody(ball.m_body);
-					gNumBallsInPlay--;
-				}
-			}			
-		}		
-	}
+// Ground
+if (contact.m_shape1.m_userData != null && contact.m_shape2.m_userData != null) {
+var ball = null;
+if (contact.m_shape1.m_userData.shapeName == "TheGround" && (contact.m_shape2.m_userData.shapeName == "TestBall" || contact.m_shape2.m_userData.shapeName == "MultiBall") ) {
+ball = contact.m_shape2;
+}
+if (contact.m_shape2.m_userData.shapeName == "TheGround" && (contact.m_shape1.m_userData.shapeName == "TestBall" || contact.m_shape1.m_userData.shapeName == "MultiBall") ) {
+ball = contact.m_shape1;
+}
+if (ball != null) {
+gB2.world.DestroyBody(ball.m_body);
+gNumBallsInPlay--;
+}
+}			
+}		
+}
 }
 
 
@@ -1814,62 +1830,60 @@ var gFlipperOffStrength = 4000;
 
 function handleInput()
 {
-	// fire the motors
+// fire the motors
 
-	if (gLFlipperPressed)
-	{
-		gLFlipperJoint.SetMotorSpeed(gFlipperOnStrength);
-		gLFlipperJoint.SetMaxMotorTorque(.90 * gFlipperOnStrength);		
-	}
-	else 
-	{
-		gLFlipperJoint.SetMotorSpeed(-1 * gFlipperOffStrength);
-		gLFlipperJoint.SetMaxMotorTorque(gFlipperOffStrength);					
-	}
-	if (gRFlipperPressed)
-	{
-		gRFlipperJoint.SetMotorSpeed(.90 * -1 * gFlipperOnStrength);
-		gRFlipperJoint.SetMaxMotorTorque(gFlipperOnStrength);		
-	}
-	else 
-	{
-		gRFlipperJoint.SetMotorSpeed(gFlipperOffStrength);
-		gRFlipperJoint.SetMaxMotorTorque(gFlipperOffStrength);					
-	}
-	if (gLauncherPressed)
-	{
-		gLauncherJoint.SetMaxMotorForce(100);
-		gLauncherJoint.SetMotorSpeed(100);
-	}
-	else {
-		gLauncherJoint.SetMaxMotorForce(400);
-		gLauncherJoint.SetMotorSpeed(-3200);
-	}
+if (gLFlipperPressed)
+{
+gLFlipperJoint.SetMotorSpeed(gFlipperOnStrength);
+gLFlipperJoint.SetMaxMotorTorque(.90 * gFlipperOnStrength);		
+}
+else 
+{
+gLFlipperJoint.SetMotorSpeed(-1 * gFlipperOffStrength);
+gLFlipperJoint.SetMaxMotorTorque(gFlipperOffStrength);					
+}
+if (gRFlipperPressed)
+{
+gRFlipperJoint.SetMotorSpeed(.90 * -1 * gFlipperOnStrength);
+gRFlipperJoint.SetMaxMotorTorque(gFlipperOnStrength);		
+}
+else 
+{
+gRFlipperJoint.SetMotorSpeed(gFlipperOffStrength);
+gRFlipperJoint.SetMaxMotorTorque(gFlipperOffStrength);					
+}
+if (gLauncherPressed)
+{
+gLauncherJoint.SetMaxMotorForce(100);
+gLauncherJoint.SetMotorSpeed(100);
+}
+else {
+gLauncherJoint.SetMaxMotorForce(400);
+gLauncherJoint.SetMotorSpeed(-3200);
+}
 }
 function createBall(world, x, y, rad, fixed, /*optional*/ ballShapeName) {
-	gNumBallsInPlay++;
-	var ballSd = new b2CircleDef();
-	if (!fixed) ballSd.density = gBallDensity;
-	ballSd.radius = rad || 10;
-	ballSd.restitution = .5;
-	ballSd.friction = 0.01;
-	if (ballShapeName != null) {
-		ballSd.userData = {shapeName:ballShapeName};		
-	}
-	else {
-		ballSd.userData = {shapeName:"TestBall"};		
-	}
-	var ballBd = new b2BodyDef();
-	//	ballBd.AddShape(ballSd);
-	ballBd.position.Set(x,y);
-	var ballBody = world.CreateBody(ballBd);
-	ballBody.isBullet = true;
-	ballBody.CreateShape(ballSd);
-	ballBody.SetMassFromShapes();
-	return ballBody;
+gNumBallsInPlay++;
+var ballSd = new b2CircleDef();
+if (!fixed) ballSd.density = gBallDensity;
+ballSd.radius = rad || 10;
+ballSd.restitution = .5;
+ballSd.friction = 0.01;
+if (ballShapeName != null) {
+ballSd.userData = {shapeName:ballShapeName};		
+}
+else {
+ballSd.userData = {shapeName:"TestBall"};		
+}
+var ballBd = new b2BodyDef();
+//	ballBd.AddShape(ballSd);
+ballBd.position.Set(x,y);
+var ballBody = world.CreateBody(ballBd);
+ballBody.isBullet = true;
+ballBody.CreateShape(ballSd);
+ballBody.SetMassFromShapes();
+return ballBody;
 };
-
-
-	</script>
+</script>
 </body>
 </html>
