@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="font:10px;overflow:hidden;background:#0099FF">
+<html style="font:10px;overflow:hidden;background:#FFFFFF">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=400,user-scalable=no">
@@ -860,7 +860,7 @@ function drawWorld(world, context) {
 
 function drawShape(shape, context) {
 	if (shape.m_userData == null || shape.m_userData.drawShape != false) {
-		context.strokeStyle = '#000000';
+		context.strokeStyle = g;
 		context.lineWidth = 5*zoom;
 		context.beginPath();
 		switch (shape.m_type) {
@@ -1257,6 +1257,7 @@ var gLauncherSpawnPoint = pixelToB2dCoords(370, 280);
 
 var gbGameOver = false;
 var gpause = false;
+var g="#000000";
 
 if (window.addEventListener) {
 	window.addEventListener("load", StartGame, false);
@@ -1274,11 +1275,15 @@ function StartGame()
 	gCanvas.height=window.innerHeight;
 	gCCTX = gCanvas.getContext("2d");
 	gCCTX.font = 40*zoom+"px Arial";
+
+	g=gCCTX.createLinearGradient(400*zoom,0,0,0);
+	g.addColorStop(0,"#FF0000");
+	g.addColorStop(1,"#0000FF");
+
 	document.getElementById("Board").style.fontSize=30*zoom+"px";
-	document.getElementById("spPAUSE").style="position: absolute;top:50%;z-index:10;left:"+zoom*135+"px";
+	document.getElementById("spPAUSE").style="position: absolute;top:"+zoom*200+";z-index:10;left:"+zoom*135+"px";
 	document.getElementById("spPAUSE").style.fontSize=40*zoom+"px";
-	document.getElementById("spPAUSE").style.color="#FFFFFF";
-	document.getElementById("spGAMEOVER").style="position:absolute;top:50%;z-index:10;left:"+zoom*115+"px";
+	document.getElementById("spGAMEOVER").style="position:absolute;top:"+zoom*200+";z-index:10;left:"+zoom*115+"px"+";color:#000000";
 	document.getElementById("spGAMEOVER").style.fontSize=40*zoom+"px";
 	document.getElementById("spGAMEOVER").style.color="#FF0000";
 
@@ -1456,7 +1461,7 @@ function handleGameConditions()
 	if (gScoreboard.GetScore() > (gScoreboard.GetMultiball()*1000)) {
 		// Multiball
 		doMultiball();
-		gScoreboard.GoToNextMultiballLevel();		
+		gScoreboard.GoToNextMultiballLevel();
 	}
 
 	// Is the game over?
