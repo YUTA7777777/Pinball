@@ -1,36 +1,38 @@
-<html id="demohtml"><head><title>Pinball</title><style id="inlinecss">
-html#demohtml
+<!DOCTYPE html>
+<html style="font:10px;overflow:hidden;background:#0099FF">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=400,user-scalable=no">
+		<title>Pinball</title><style id="inlinecss">
+.Board
 {
-	overflow: hidden;
-	background: linear-gradient(#FF0000,#0000FF);
+	position: absolute;top: 50%;z-index:10;
 }
-body
-{
-	overflow: hidden;
-}
-.Score
-{
-	font-family:"Comic Sans MS";
-	color:#000000;
-}</style>
+</style>
 	</head>
-	<body>
+	<body style="overflow:hidden font-family:Arial">
 		<div id="Board">
-		<div class="Score" style="top: 65px; left: 127px">
+		<div class="Score" style="top:65px;left:127px;color:#000000">
 			Score: <span id="spScore">0</span>
 		</div>
-		<div class="Score" style="top: 65px; left: 267px">
+		<div class="Score" style="top:65px;left:267px;color:#000000">
 			Balls: <span id="spBalls">3</span>
 		</div>
-		<div class="Score" style="top: 65px; left: 347px">
+		<div class="Score" style="top:65px;left:347px;color:#000000">
 			Multiball: <span id="spMultiball"></span>000</div>
 		</div>
-			<canvas id="pinballCanvas" height="560" width="400"></canvas>
+		<div class="Board" color="#FFFFFF">
+			<span id="spPAUSE"></span></div>
+		</div>
+		<div class="Board">
+			<span id="spGAMEOVER"></span></div>
+		</div>
+		<canvas id="pinballCanvas" height="560" width="400" style="position:fixed;z-index:2"></canvas>
 		<script>
-var zoom;
-	if(window.innerWidth/500 < window.innerHeight/800)
+var zoom=1.0;
+	if(window.innerWidth/450 < window.innerHeight/800)
 	{
-		zoom=window.innerWidth/500;
+		zoom=window.innerWidth/450;
 	}else
 	{
 		zoom=window.innerHeight/800;
@@ -957,9 +959,9 @@ ScoreBoard.prototype.Update = function ()
 		this.ballsElement.textContent = this.balls;
 	}
 	else {
-		this.scoreElement.innerText = this.score;
-		this.multiballElement.innerText = this.multiball;
-		this.ballsElement.innerText = this.balls;
+		this.scoreElement.innerHTML = this.score;
+		this.multiballElement.innerHTML = this.multiball;
+		this.ballsElement.innerHTML = this.balls;
 	}
 }
 
@@ -1271,14 +1273,18 @@ function StartGame()
 	gCanvas.width=window.innerWidth;
 	gCanvas.height=window.innerHeight;
 	gCCTX = gCanvas.getContext("2d");
-	gCCTX.font = 40*zoom+"px Comic Sans MS";
-	document.getElementById("Board").style.fontSize=30*zoom;
+	gCCTX.font = 40*zoom+"px Arial";
+	document.getElementById("Board").style.fontSize=30*zoom+"px";
+	document.getElementById("spPAUSE").style="position: absolute;top:50%;z-index:10;left:"+zoom*135+"px";
+	document.getElementById("spPAUSE").style.fontSize=40*zoom+"px";
+	document.getElementById("spPAUSE").style.color="#FFFFFF";
+	document.getElementById("spGAMEOVER").style="position:absolute;top:50%;z-index:10;left:"+zoom*115+"px";
+	document.getElementById("spGAMEOVER").style.fontSize=40*zoom+"px";
+	document.getElementById("spGAMEOVER").style.color="#FF0000";
 
 	gAnimationManager = new AnimationManager(gCCTX);
 
-	gScoreboard = new ScoreBoard(document.getElementById("spScore"),
-		document.getElementById("spMultiball"),
-		document.getElementById("spBalls"));
+	gScoreboard = new ScoreBoard(document.getElementById("spScore"),document.getElementById("spMultiball"),document.getElementById("spBalls"));
 
 	initWorld();
 	initInput();
@@ -1296,10 +1302,12 @@ function initInput()
 		if(gpause)
 		{
 			gpause=false;
+			document.getElementById("spPAUSE").innerHTML="";
 		}
 		if(gbGameOver)
 		{
 			gbGameOver=false;
+			document.getElementById("spGAMEOVER").innerHTML="";
 			gScoreboard.score=0;
 			gScoreboard.balls=4;
 			gScoreboard.multiballLevel=0;
@@ -1381,14 +1389,17 @@ function KeyUp(key)
 			if(key.keyCode == 32)
 			{
 				gpause=true;
+				document.getElementById("spPAUSE").innerHTML="PAUSE";
 			}
 		}else
 		{
 			gpause=false;
+			document.getElementById("spPAUSE").innerHTML="";
 		}
 	}else
 	{
 		gbGameOver=false;
+		document.getElementById("spGAMEOVER").innerHTML="";
 		gScoreboard.score=0;
 		gScoreboard.balls=4;
 		gScoreboard.multiballLevel=0;
@@ -1426,14 +1437,10 @@ function mainLoop()
 			drawWorld(b2.world, gCCTX);
 		}else
 		{
-			gCCTX.fillStyle="#FFFFFF";
-			gCCTX.fillText("PAUSE",135*zoom,200*zoom);
 		}
 	}else
 	{
 		gCCTX.clearRect(0,0,gCanvas.width,gCanvas.height);
-		gCCTX.fillStyle="#FF0000";
-		gCCTX.fillText("GAME OVER",115*zoom,200*zoom);
 	}
 }
 
@@ -1455,6 +1462,7 @@ function handleGameConditions()
 	// Is the game over?
 	if (gScoreboard.GetBallsLeft() == 0 &&  gNumBallsInPlay == 0) {
 		gbGameOver = true;
+		document.getElementById("spGAMEOVER").innerHTML="GAME"+"&nbsp"+"OVER";
 	}		
 }
 function doMultiball()
