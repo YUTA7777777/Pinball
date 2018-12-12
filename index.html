@@ -1,9 +1,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=400,user-scalable=no,initial-scale=1.0">
+		<meta name="viewport" content="width=400,user-scalable=no,initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0">
 		<link rel="manifest" href="manifest.json">
-		<link rel="shortcut icon" href="favicon.ico">
 		<title>Pinball</title>
 	</head>
 	<body style="overflow:hidden">
@@ -1352,6 +1351,15 @@ function initInput()
 		gRFlipperPressed=false;
 		gLFlipperPressed=false;
 		gLauncherPressed = false;
+		if(doubleClick>0&&doubleClick<20)
+		{
+			doubleClick=0;
+			gPause=true;
+			document.getElementById("spPAUSE").innerHTML="PAUSE";
+		}else
+		{
+			doubleClick=1;
+		}
 		for (var i = 0; i < event.touches.length; i++) {
 			var touch = event.touches[i];
 			if(touch.pageX<225*zoom)
