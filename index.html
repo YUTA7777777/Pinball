@@ -1352,15 +1352,6 @@ function initInput()
 		gRFlipperPressed=false;
 		gLFlipperPressed=false;
 		gLauncherPressed = false;
-		if(doubleClick>0&&doubleClick<20)
-		{
-			doubleClick=0;
-			gPause=true;
-			document.getElementById("spPAUSE").innerHTML="PAUSE";
-		}else
-		{
-			doubleClick=1;
-		}
 		for (var i = 0; i < event.touches.length; i++) {
 			var touch = event.touches[i];
 			if(touch.pageX<225*zoom)
