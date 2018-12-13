@@ -1,11 +1,16 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=400,user-scalable=no,initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 		<link rel="manifest" href="manifest.json">
 		<title>Pinball</title>
 	</head>
 	<body style="overflow:hidden">
+		<style>
+			html, css{
+				touch-action:none;
+			}
+		</style>
 		<div id="Board">
 		<div style="top:65px;left:127px">
 			Score: <span id="spScore">0</span>
